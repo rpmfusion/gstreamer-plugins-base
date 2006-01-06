@@ -75,9 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING README REQUIREMENTS
 
 # helper programs
-%{_bindir}/gst-launch-ext-%{majorminor}
 %{_bindir}/gst-visualise-%{majorminor}
-%{_mandir}/man1/gst-launch-ext-%{majorminor}.*
 %{_mandir}/man1/gst-visualise-%{majorminor}*
 
 # libraries
@@ -181,6 +179,7 @@ GStreamer Base Plugins library development and header files.
 %changelog
 * Fri Jan 06 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.1-1
 - New upstream version
+- gst-launch removed from upstream
 
 * Sat Dec 17 2005 Thomas Vander Stichele <thomas at apestaart dot org>
 - 0.10.0-1
