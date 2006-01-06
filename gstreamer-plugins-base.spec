@@ -1,10 +1,10 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.0
+%define         _gst            0.10.1
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.0
+Version: 	0.10.1
 Release: 	1
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -179,6 +179,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Jan 06 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.1-1
+- New upstream version
+
 * Sat Dec 17 2005 Thomas Vander Stichele <thomas at apestaart dot org>
 - 0.10.0-1
 - Fedora Development build
