@@ -86,6 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstnetbuffer-%{majorminor}.so.*
 %{_libdir}/libgstrtp-%{majorminor}.so.*
 %{_libdir}/libgstvideo-%{majorminor}.so.*
+%{_libdir}/libgstcdda-0.10.so.*
+
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
@@ -104,6 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgsttcp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
+%{_libdir}/gstreamer-%{majorminor}/libgstcdparanoia.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
@@ -114,7 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstvorbis.so
 %{_libdir}/gstreamer-%{majorminor}/libgstximagesink.so
 %{_libdir}/gstreamer-%{majorminor}/libgstxvimagesink.so
-                                                                                
+
+
+
 %package devel
 Summary: 	GStreamer Base Plugins Development files
 Group: 		Development/Libraries
@@ -160,6 +165,9 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpdepayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertppayload.h
+%{_includedir}/gstreamer-%{majorminor}/gst/audio/mixerutils.h
+%{_includedir}/gstreamer-%{majorminor}/gst/cdda/gstcddabasesrc.h
+   
 
 %{_libdir}/libgstaudio-%{majorminor}.so
 %{_libdir}/libgstinterfaces-%{majorminor}.so
@@ -168,6 +176,8 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstrtp-%{majorminor}.so
 %{_libdir}/libgsttag-%{majorminor}.so
 %{_libdir}/libgstvideo-%{majorminor}.so
+%{_libdir}/libgstcdda-0.10.so
+
 
 # pkg-config files
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
@@ -180,6 +190,7 @@ GStreamer Base Plugins library development and header files.
 * Wed Jan 18 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.2-1
 - Upgrade to 0.10.2
 - Require gstreamer-0.10.2
+- Add libgstcdda and libcdparanoia to the %files section
 
 * Fri Jan 06 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.1-1
 - New upstream version
