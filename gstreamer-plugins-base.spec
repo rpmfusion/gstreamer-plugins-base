@@ -4,7 +4,7 @@
 %define         _gst            0.10.1
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.1
+Version: 	0.10.2
 Release: 	1
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -177,6 +177,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Jan 18 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.2-1
+- Upgrade to 0.10.2
+
 * Fri Jan 06 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.1-1
 - New upstream version
 - gst-launch removed from upstream
