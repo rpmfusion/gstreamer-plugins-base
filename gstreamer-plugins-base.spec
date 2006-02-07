@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.2
-Release: 	2
+Release: 	2.1
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -187,6 +187,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Feb 07 2006 Jesse Keating <jkeating@redhat.com> - 0.10.2-2.1
+- rebuilt for new gcc4.1 snapshot and glibc changes
+
 * Thu Feb 02 2006 Warren Togami <wtogami@redhat.com> - 0.10.2-2
 - buildreq cdparanoia-devel (#179034 thias)
 
