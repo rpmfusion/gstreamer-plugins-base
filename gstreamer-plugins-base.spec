@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.3
-Release: 	1
+Release:  	2	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -29,6 +29,7 @@ BuildRequires:  liboil-devel >= 0.3.2
 BuildRequires:  alsa-lib-devel
 BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
+Obsoletes: gstreamer-plugins
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -124,6 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 Summary: 	GStreamer Base Plugins Development files
 Group: 		Development/Libraries
 Requires: 	%{gstreamer}-plugins-base = %{version}
+Obsoletes: gstreamer-plugins-devel
 
 %description devel
 GStreamer Base Plugins library development and header files.
@@ -187,6 +189,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Feb 20 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.3-2
+- Obsolete gstreamer-plugins (Bug #182098)
+
 * Fri Feb 10 2006 Christopher Aillon <caillon@redhat.com> - 0.10.3-1
 - Update to 0.10.3
 
