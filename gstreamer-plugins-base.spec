@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.3
-Release:  	2	
+Release:  	3	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -29,6 +29,7 @@ BuildRequires:  liboil-devel >= 0.3.2
 BuildRequires:  alsa-lib-devel
 BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
+BuildRequires:  cdparanoia-devel
 Obsoletes: gstreamer-plugins
 
 # documentation
@@ -189,6 +190,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Mar 01 2006 Karsten Hopp <karsten@redhat.de> 0.10.3-3	
+- really add BuildRequires: cdparanoia-devel (#179034)
+
 * Mon Feb 20 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.3-2
 - Obsolete gstreamer-plugins (Bug #182098)
 
