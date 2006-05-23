@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.2
+%define         _gst            0.10.6
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.3
-Release:  	3	
+Version: 	0.10.7
+Release:  	1	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -190,6 +190,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon May 22 2006 Matthias Clasen <mclasen@redhat.com> 0.10.7-1
+- Update to 0.10.7
+
 * Wed Mar 01 2006 Karsten Hopp <karsten@redhat.de> 0.10.3-3	
 - really add BuildRequires: cdparanoia-devel (#179034)
 
