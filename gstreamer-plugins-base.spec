@@ -4,8 +4,8 @@
 %define         _gst            0.10.6
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.7
-Release:  	1.1	
+Version: 	0.10.9
+Release:  	1	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -190,6 +190,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jul 20 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.9-1
+- Update to 0.10.9
+
 * Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - sh: line 0: fg: no job control
 - rebuild
 
