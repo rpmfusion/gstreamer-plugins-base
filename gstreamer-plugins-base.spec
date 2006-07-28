@@ -5,13 +5,14 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.9
-Release:  	2	
+Release:  	4	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPL
 URL:		http://gstreamer.freedesktop.org/
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+Patch0:		gstreamer-plugins-base-0.10.9-docs.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{_gst}
@@ -48,6 +49,8 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .docs
+
 %build
 %configure \
   --with-package-name='Fedora Core gstreamer-plugins-base package' \
@@ -186,10 +189,13 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
 
 # gtk-doc documentation
-#%doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
-#%doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
+%doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
+%doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Jul 28 2006 Matthias Clasen <mclasen@redhat.com> - 0.10.9-3
+- Re-add docs
+
 * Thu Jul 27 2006 Matthias Clasen <mclasen@redhat.com> - 0.10.9-2
 - Disable gtk-doc to fix multilib conflicts
 
