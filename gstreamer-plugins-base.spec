@@ -186,8 +186,8 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
 
 # gtk-doc documentation
-%doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
-%doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
+#%doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
+#%doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
 * Thu Jul 27 2006 Matthias Clasen <mclasen@redhat.com> - 0.10.9-2
