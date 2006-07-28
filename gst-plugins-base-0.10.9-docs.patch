@@ -1,0 +1,15 @@
+--- gst-plugins-base-0.10.9/docs/Makefile.in.docs	2006-07-27 21:27:34.000000000 -0400
++++ gst-plugins-base-0.10.9/docs/Makefile.in	2006-07-27 21:27:55.000000000 -0400
+@@ -384,10 +384,8 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-@ENABLE_GTK_DOC_FALSE@GTK_DOC_DIRS = 
+-@ENABLE_GTK_DOC_TRUE@GTK_DOC_DIRS = libs
+-@ENABLE_PLUGIN_DOCS_FALSE@PLUGIN_DOCS_DIRS = 
+-@ENABLE_PLUGIN_DOCS_TRUE@PLUGIN_DOCS_DIRS = plugins
++GTK_DOC_DIRS = libs
++PLUGIN_DOCS_DIRS = plugins
+ SUBDIRS = $(GTK_DOC_DIRS) $(PLUGIN_DOCS_DIRS)
+ DIST_SUBDIRS = libs plugins
+ EXTRA_DIST = \
