@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.9
-Release:  	1	
+Release:  	2	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -52,7 +52,7 @@ This package contains a set of well-maintained base plug-ins.
 %configure \
   --with-package-name='Fedora Core gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
-  --enable-gtk-doc
+  --disable-gtk-doc
 
 make %{?_smp_mflags}
 
@@ -190,6 +190,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jul 27 2006 Matthias Clasen <mclasen@redhat.com> - 0.10.9-2
+- Disable gtk-doc to fix multilib conflicts
+
 * Thu Jul 20 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.9-1
 - Update to 0.10.9
 
