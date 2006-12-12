@@ -101,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstaudiotestsrc.so
 %{_libdir}/gstreamer-%{majorminor}/libgstffmpegcolorspace.so
 %{_libdir}/gstreamer-%{majorminor}/libgstdecodebin.so
+%{_libdir}/gstreamer-%{majorminor}/libgstdecodebin2.so
 %{_libdir}/gstreamer-%{majorminor}/libgstplaybin.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttypefindfunctions.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideotestsrc.so
@@ -160,11 +161,13 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tuner.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tunerchannel.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tunernorm.h
+%{_includedir}/gstreamer-%{majorminor}/gst/interfaces/videoorientation.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/xoverlay.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiosrc.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstbaseaudiosrc.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/multichannel-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtpbuffer.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpaudiopayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioclock.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiosink.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstbaseaudiosink.h
