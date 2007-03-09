@@ -5,15 +5,13 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.12
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPL
 URL:		http://gstreamer.freedesktop.org/
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
-# http://bugzilla.gnome.org/show_bug.cgi?id=349099
-Patch0:		gstreamer-plugins-base-0.10.9-docs.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{_gst}
@@ -49,7 +47,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .docs
 
 %build
 %configure \
@@ -69,6 +66,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+
+# Install the docs by hand, see http://bugzilla.gnome.org/show_bug.cgi?id=349099
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-libs-0.10/
+cp -ar docs/libs/html/ $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-libs-0.10/
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-plugins-0.10/
+cp -ar docs/plugins/html/ $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-plugins-0.10/
 
 %find_lang gst-plugins-base-%{majorminor}
 
@@ -92,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstnetbuffer-%{majorminor}.so.*
 %{_libdir}/libgstrtp-%{majorminor}.so.*
 %{_libdir}/libgstvideo-%{majorminor}.so.*
+%{_libdir}/libgstpbutils-%{majorminor}.so.*
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
@@ -163,6 +167,10 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/videoorientation.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/xoverlay.h
 %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer/gstnetbuffer.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/descriptions.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/install-plugins.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/missing-plugins.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/pbutils.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-ids.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-media.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-read.h
@@ -182,7 +190,8 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstrtp-%{majorminor}.so
 %{_libdir}/libgsttag-%{majorminor}.so
 %{_libdir}/libgstvideo-%{majorminor}.so
-%{_libdir}/libgstcdda-0.10.so
+%{_libdir}/libgstcdda-%{majorminor}.so
+%{_libdir}/libgstpbutils-%{majorminor}.so
 
 # pkg-config files
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
@@ -192,6 +201,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Mar 08 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.12-2
+- Remove the patch to disable docs, install the docs by hand instead
+  Add libgstpbutils to the files
+
 * Thu Mar 08 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.12-1
 - Update to 0.10.12
 
