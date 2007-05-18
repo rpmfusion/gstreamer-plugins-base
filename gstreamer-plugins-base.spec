@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.12
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -140,6 +140,7 @@ GStreamer Base Plugins library development and header files.
 %files devel
 %defattr(-, root, root)
 # plugin helper library headers
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/audio
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/audio.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioclock.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiofilter.h
@@ -151,8 +152,11 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/mixerutils.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/multichannel-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/multichannel.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/cdda
 %{_includedir}/gstreamer-%{majorminor}/gst/cdda/gstcddabasesrc.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/floatcast
 %{_includedir}/gstreamer-%{majorminor}/gst/floatcast/floatcast.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/interfaces
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/colorbalance.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/colorbalancechannel.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/interfaces-enumtypes.h
@@ -166,19 +170,25 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tunernorm.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/videoorientation.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/xoverlay.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer
 %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer/gstnetbuffer.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/pbutils
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/descriptions.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/install-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/missing-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/pbutils.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/riff
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-ids.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-media.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-read.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/rtp
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpaudiopayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpdepayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertppayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtpbuffer.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/video
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideosink.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/video.h
@@ -201,6 +211,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri May 18 2007 Adam Jackson <ajax@redhat.com> 0.10.12-3
+- Add directory ownership claims to %%files devel. (#240238)
+
 * Thu Mar 08 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.12-2
 - Remove the patch to disable docs, install the docs by hand instead
   Add libgstpbutils to the files
