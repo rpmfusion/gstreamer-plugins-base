@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.12
+%define         _gst            0.10.13
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.12
-Release:  	3%{?dist}	
+Version: 	0.10.13
+Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -211,6 +211,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jun 05 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.13-1
+- Update to 0.10.13
+
 * Fri May 18 2007 Adam Jackson <ajax@redhat.com> 0.10.12-3
 - Add directory ownership claims to %%files devel. (#240238)
 
