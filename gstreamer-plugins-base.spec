@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.13
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -116,6 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
+%{_libdir}/gstreamer-%{majorminor}/libgstqueue2.so
+%{_libdir}/gstreamer-%{majorminor}/libgsturidecodebin.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
@@ -185,6 +187,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpaudiopayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertpdepayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertppayload.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtcpbuffer.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtpbuffer.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
@@ -211,6 +214,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jun 05 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.13-2
+- Add missing files
+
 * Tue Jun 05 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.13-1
 - Update to 0.10.13
 
