@@ -96,6 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstrtp-%{majorminor}.so.*
 %{_libdir}/libgstvideo-%{majorminor}.so.*
 %{_libdir}/libgstpbutils-%{majorminor}.so.*
+%{_libdir}/libgstrtsp-%{majorminor}.so.*
+%{_libdir}/libgstsdp-%{majorminor}.so.*
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
@@ -189,6 +191,19 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertppayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtcpbuffer.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtpbuffer.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/rtsp
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtsp-enumtypes.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspbase64.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspconnection.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspdefs.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspextension.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspmessage.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtsprange.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtsptransport.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspurl.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/sdp/
+%{_includedir}/gstreamer-%{majorminor}/gst/sdp/gstsdp.h
+%{_includedir}/gstreamer-%{majorminor}/gst/sdp/gstsdpmessage.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/video
@@ -205,6 +220,8 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstvideo-%{majorminor}.so
 %{_libdir}/libgstcdda-%{majorminor}.so
 %{_libdir}/libgstpbutils-%{majorminor}.so
+%{_libdir}/libgstrtsp-%{majorminor}.so
+%{_libdir}/libgstsdp-%{majorminor}.so
 
 # pkg-config files
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
@@ -216,6 +233,7 @@ GStreamer Base Plugins library development and header files.
 %changelog
 * Sat Aug 04 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-1
 - Update to 0.10.14
+- Add RTSP and SDP helper libraries
 
 * Tue Jun 05 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.13-2
 - Add missing files
