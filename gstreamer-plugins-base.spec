@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.14
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -15,6 +15,7 @@ Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugin
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{_gst}
+Requires:	liboil >= 0.3.12-7
 BuildRequires: 	%{gstreamer}-devel >= %{_gst}
 
 BuildRequires:  gettext
@@ -231,7 +232,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
-* Sat Aug 04 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-1
+* Wed Aug 15 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-3
+- Up requirement for liboil for PPC machines (#252179)
+
+* Sat Aug 04 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-2
 - Update to 0.10.14
 - Add RTSP and SDP helper libraries
 
