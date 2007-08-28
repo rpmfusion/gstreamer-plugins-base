@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.14
-Release:  	3%{?dist}	
+Release:  	4%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -30,6 +30,7 @@ BuildRequires:  alsa-lib-devel
 BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
+BuildRequires:  libvisual-devel
 Obsoletes:	gstreamer-plugins
 
 # documentation
@@ -126,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
 %{_libdir}/gstreamer-%{majorminor}/libgstcdparanoia.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgnomevfs.so
+%{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
 %{_libdir}/gstreamer-%{majorminor}/libgstogg.so
 %{_libdir}/gstreamer-%{majorminor}/libgstpango.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttheora.so
@@ -232,6 +234,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Aug 28 2007 Adam Jackson <ajax@redhat.com> 0.10.14-4
+- BuildReq on libvisual and add the plugin. (#253491)
+
 * Wed Aug 15 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-3
 - Up requirement for liboil for PPC machines (#252179)
 
