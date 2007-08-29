@@ -5,17 +5,18 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.14
-Release:  	4%{?dist}	
+Release:  	5%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPL
 URL:		http://gstreamer.freedesktop.org/
-Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+Patch0:		gstreamer-plugins-base-0.10.14-unsupported-codec.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{_gst}
-Requires:	liboil >= 0.3.12-7
+Requires:	liboil >= 0.3.12-9
 BuildRequires: 	%{gstreamer}-devel >= %{_gst}
 
 BuildRequires:  gettext
@@ -49,6 +50,10 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+
+pushd gst/playback/
+%patch0 -p0
+popd
 
 %build
 %configure \
@@ -234,6 +239,11 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Aug 29 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-5
+- Add patch to avoid critical warning when getting information about
+  missing codecs
+- Up liboil requirement
+
 * Tue Aug 28 2007 Adam Jackson <ajax@redhat.com> 0.10.14-4
 - BuildReq on libvisual and add the plugin. (#253491)
 
