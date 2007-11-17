@@ -4,17 +4,14 @@
 %define         _gst            0.10.14
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.14
-Release:  	6%{?dist}	
+Version: 	0.10.15
+Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPL
 URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
-Patch0:		gstreamer-plugins-base-0.10.14-unsupported-codec.patch
-# https://bugzilla.redhat.com/show_bug.cgi?id=328851
-Patch1:		gstreamer-plugins-base-0.10.14-short-ogg-fix.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{_gst}
@@ -52,11 +49,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-
-pushd gst/playback/
-%patch0 -p0
-popd
-%patch1 -p0
 
 %build
 %configure \
@@ -242,6 +234,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sat Nov 17 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.15-1
+- Update to 0.10.15
+
 * Thu Oct 18 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.14-6
 - Add patch to fix playback of short Ogg Vorbis files (#328851)
 
