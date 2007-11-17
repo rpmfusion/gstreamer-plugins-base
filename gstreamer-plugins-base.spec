@@ -1,7 +1,7 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.14
+%define         _gst            0.10.15
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.15
