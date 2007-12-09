@@ -92,6 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstinterfaces-%{majorminor}.so.*
 %{_libdir}/libgstaudio-%{majorminor}.so.*
 %{_libdir}/libgstcdda-%{majorminor}.so.*
+%{_libdir}/libgstfft-%{majorminor}.so.*
 %{_libdir}/libgstriff-%{majorminor}.so.*
 %{_libdir}/libgsttag-%{majorminor}.so.*
 %{_libdir}/libgstnetbuffer-%{majorminor}.so.*
@@ -163,6 +164,8 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/cdda/gstcddabasesrc.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/floatcast
 %{_includedir}/gstreamer-%{majorminor}/gst/floatcast/floatcast.h
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/fft
+%{_includedir}/gstreamer-%{majorminor}/gst/fft/gstfft*.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/interfaces
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/colorbalance.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/colorbalancechannel.h
@@ -194,6 +197,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstbasertppayload.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtcpbuffer.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtpbuffer.h
+%{_includedir}/gstreamer-%{majorminor}/gst/rtp/gstrtppayloads.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/rtsp
 %{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtsp-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/rtsp/gstrtspbase64.h
@@ -209,6 +213,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/sdp/gstsdpmessage.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
+%{_includedir}/gstreamer-%{majorminor}/gst/tag/gsttagdemux.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/video
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideosink.h
@@ -225,6 +230,7 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstpbutils-%{majorminor}.so
 %{_libdir}/libgstrtsp-%{majorminor}.so
 %{_libdir}/libgstsdp-%{majorminor}.so
+%{_libdir}/libgstfft-%{majorminor}.so
 
 # pkg-config files
 %{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
