@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.15
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -37,6 +37,8 @@ Obsoletes:	gstreamer-plugins
 BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
+Patch0:         gst-plugins-base-alsa-mixer-thinkpad.patch
+
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
@@ -49,6 +51,9 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+pushd ext/alsa/
+%patch0 -p0 -b .mixer-thinkpad
+popd
 
 %build
 %configure \
@@ -240,6 +245,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Jan 07 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.15-2
+- Add upstream patch to fix default track selection on Thinkpads
+  (#344911)
+
 * Sat Nov 17 2007 - Bastien Nocera <bnocera@redhat.com> - 0.10.15-1
 - Update to 0.10.15
 
