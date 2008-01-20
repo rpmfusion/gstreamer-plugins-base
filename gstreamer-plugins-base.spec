@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.15
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -245,6 +245,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sun Jan 20 2008  Matthias Clasen  <mclasen@redhat.com> - 0.10.15-3
+- Fix upgrade path
+
 * Mon Jan 07 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.15-2
 - Add upstream patch to fix default track selection on Thinkpads
   (#344911)
