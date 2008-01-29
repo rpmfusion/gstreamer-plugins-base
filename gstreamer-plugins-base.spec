@@ -122,7 +122,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstqueue2.so
-%{_libdir}/gstreamer-%{majorminor}/libgsturidecodebin.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
