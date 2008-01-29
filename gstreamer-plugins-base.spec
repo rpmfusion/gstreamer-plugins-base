@@ -4,8 +4,8 @@
 %define         _gst            0.10.15
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.15
-Release:  	3%{?dist}	
+Version: 	0.10.16
+Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -37,8 +37,6 @@ Obsoletes:	gstreamer-plugins
 BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
-Patch0:         gst-plugins-base-alsa-mixer-thinkpad.patch
-
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
@@ -51,9 +49,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-pushd ext/alsa/
-%patch0 -p0 -b .mixer-thinkpad
-popd
 
 %build
 %configure \
@@ -192,6 +187,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/install-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/missing-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/pbutils.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/pbutils-enumtypes.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/riff
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-ids.h
 %{_includedir}/gstreamer-%{majorminor}/gst/riff/riff-media.h
@@ -238,13 +234,16 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstfft-%{majorminor}.so
 
 # pkg-config files
-%{_libdir}/pkgconfig/gstreamer-plugins-base-%{majorminor}.pc
+%{_libdir}/pkgconfig/*.pc
 
 # gtk-doc documentation
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jan 29 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.16-1
+- Update to 0.10.16
+
 * Sun Jan 20 2008  Matthias Clasen  <mclasen@redhat.com> - 0.10.15-3
 - Fix upgrade path
 
