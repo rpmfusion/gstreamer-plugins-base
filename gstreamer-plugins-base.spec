@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.17
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -240,6 +240,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Feb 18 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.10.17-2
+- Autorebuild for GCC 4.3
+
 * Wed Jan 30 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17-1
 - Update to 0.10.17
 
