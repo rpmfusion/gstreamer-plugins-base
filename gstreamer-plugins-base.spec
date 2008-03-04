@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.17.2
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -13,6 +13,8 @@ License: 	LGPL
 URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Patch0:		gstpb-0.10.15-cd-speed.patch
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -49,13 +51,15 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .cd-speed
 
 %build
 %configure \
-  --with-package-name='Fedora Core gstreamer-plugins-base package' \
+  --with-package-name='Fedora gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
   --disable-gtk-doc \
-  --enable-experimental
+  --enable-experimental \
+  --disable-static
 
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
@@ -242,6 +246,12 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Mar 04 2008 Adam Jackson <ajax@redhat.com> 0.10.17.2-3
+- gstpb-0.10.15-cd-speed.patch: Set default CD read speed to something
+  sensible. (#431178)
+- s/Fedora Core/Fedora/
+- Don't even bother building static libs.
+
 * Tue Mar 04 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17.2-2
 - Enable the GIO plugin
 
