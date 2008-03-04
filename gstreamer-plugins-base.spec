@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.17.2
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -54,7 +54,8 @@ This package contains a set of well-maintained base plug-ins.
 %configure \
   --with-package-name='Fedora Core gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
-  --disable-gtk-doc
+  --disable-gtk-doc \
+  --enable-experimental
 
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
@@ -122,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstqueue2.so
+%{_libdir}/gstreamer-%{majorminor}/libgstgio.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
@@ -240,6 +242,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Mar 04 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17.2-2
+- Enable the GIO plugin
+
 * Tue Mar 04 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17.2-1
 - Update to 0.10.17.2 pre-release
 
