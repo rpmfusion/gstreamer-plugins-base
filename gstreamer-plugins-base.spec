@@ -56,7 +56,7 @@ This package contains a set of well-maintained base plug-ins.
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
   --disable-gtk-doc
 
-make %{?_smp_mflags}
+make %{?_smp_mflags} ERROR_CFLAGS=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
