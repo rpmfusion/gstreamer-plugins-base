@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.17.2
-Release:  	3%{?dist}	
+Release:  	4%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -32,7 +32,8 @@ BuildRequires:  alsa-lib-devel
 BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
-BuildRequires:  libvisual-devel
+# https://bugzilla.redhat.com/show_bug.cgi?id=435771
+#BuildRequires:  libvisual-devel
 Obsoletes:	gstreamer-plugins
 
 # documentation
@@ -133,7 +134,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
 %{_libdir}/gstreamer-%{majorminor}/libgstcdparanoia.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgnomevfs.so
-%{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
+# https://bugzilla.redhat.com/show_bug.cgi?id=435771
+#%{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
 %{_libdir}/gstreamer-%{majorminor}/libgstogg.so
 %{_libdir}/gstreamer-%{majorminor}/libgstpango.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttheora.so
@@ -246,6 +248,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sun Mar 09 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17.2-4
+- Disable libvisual for now (#435771)
+
 * Tue Mar 04 2008 Adam Jackson <ajax@redhat.com> 0.10.17.2-3
 - gstpb-0.10.15-cd-speed.patch: Set default CD read speed to something
   sensible. (#431178)
