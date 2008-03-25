@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.16
+%define         _gst            0.10.18
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.17.2
-Release:  	4%{?dist}	
+Version: 	0.10.18
+Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -32,8 +32,7 @@ BuildRequires:  alsa-lib-devel
 BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
-# https://bugzilla.redhat.com/show_bug.cgi?id=435771
-#BuildRequires:  libvisual-devel
+BuildRequires:  libvisual-devel
 Obsoletes:	gstreamer-plugins
 
 # documentation
@@ -134,8 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
 %{_libdir}/gstreamer-%{majorminor}/libgstcdparanoia.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgnomevfs.so
-# https://bugzilla.redhat.com/show_bug.cgi?id=435771
-#%{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
+%{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
 %{_libdir}/gstreamer-%{majorminor}/libgstogg.so
 %{_libdir}/gstreamer-%{majorminor}/libgstpango.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttheora.so
@@ -248,6 +246,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Mar 25 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.18-1
+- Update to 0.10.18
+- Re-enable the libvisual plugins
+
 * Sun Mar 09 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.17.2-4
 - Disable libvisual for now (#435771)
 
