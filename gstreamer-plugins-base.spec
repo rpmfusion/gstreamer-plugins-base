@@ -1,10 +1,10 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.18
+%define         _gst            0.10.19
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.18
+Version: 	0.10.19
 Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -246,6 +246,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Apr 04 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-1
+- Update to 0.10.19
+
 * Tue Mar 25 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.18-1
 - Update to 0.10.18
 - Re-enable the libvisual plugins
