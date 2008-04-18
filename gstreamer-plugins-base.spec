@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.19
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -15,6 +15,8 @@ Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Patch0:		gstpb-0.10.15-cd-speed.patch
+# http://bugzilla.gnome.org/show_bug.cgi?id=518082
+Patch1:		gstreamer-0.10.19-alsasink-mixed-record-playback-tracks.patch
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -52,6 +54,7 @@ This package contains a set of well-maintained base plug-ins.
 %prep
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .cd-speed
+%patch1 -p1 -b .alsasink
 
 %build
 %configure \
@@ -246,6 +249,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Apr 18 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-2
+- Add patch to avoid sync problems in the ALSA sink when a specific
+  track has both playback and record flags
+
 * Fri Apr 04 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-1
 - Update to 0.10.19
 
