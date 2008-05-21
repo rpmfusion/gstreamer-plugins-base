@@ -5,11 +5,11 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.19
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
-License: 	LGPL
+License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -249,6 +249,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed May 21 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 0.10.19-3
+- fix license tag
+
 * Fri Apr 18 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-2
 - Add patch to avoid sync problems in the ALSA sink when a specific
   track has both playback and record flags
