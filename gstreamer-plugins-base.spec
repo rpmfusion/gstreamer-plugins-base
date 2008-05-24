@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.19
-Release:  	3%{?dist}	
+Release:  	4%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -25,7 +25,6 @@ BuildRequires: 	%{gstreamer}-devel >= %{_gst}
 BuildRequires:  gettext
 BuildRequires:  gcc-c++
 
-BuildRequires:  gnome-vfs2-devel > 1.9.4.00
 BuildRequires:  libogg-devel >= 1.0
 BuildRequires:  libvorbis-devel >= 1.0
 BuildRequires:  libtheora-devel >= 1.0
@@ -135,7 +134,6 @@ rm -rf $RPM_BUILD_ROOT
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
 %{_libdir}/gstreamer-%{majorminor}/libgstcdparanoia.so
-%{_libdir}/gstreamer-%{majorminor}/libgstgnomevfs.so
 %{_libdir}/gstreamer-%{majorminor}/libgstlibvisual.so
 %{_libdir}/gstreamer-%{majorminor}/libgstogg.so
 %{_libdir}/gstreamer-%{majorminor}/libgstpango.so
@@ -249,6 +247,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sat May 24 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-4
+- Remove the gnome-vfs plugin, and see what breaks
+
 * Wed May 21 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 0.10.19-3
 - fix license tag
 
