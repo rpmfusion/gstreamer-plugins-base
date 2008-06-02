@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.19
-Release:  	4%{?dist}	
+Release:  	5%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -59,7 +59,7 @@ This package contains a set of well-maintained base plug-ins.
 %configure \
   --with-package-name='Fedora gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
-  --disable-gtk-doc \
+  --enable-gtk-doc \
   --enable-experimental \
   --disable-static
 
@@ -75,12 +75,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-
-# Install the docs by hand, see http://bugzilla.gnome.org/show_bug.cgi?id=349099
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-libs-0.10/
-cp -ar docs/libs/html/ $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-libs-0.10/
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-plugins-0.10/
-cp -ar docs/plugins/html/ $RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html/gst-plugins-base-plugins-0.10/
 
 %find_lang gst-plugins-base-%{majorminor}
 
@@ -247,6 +241,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Jun 02 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-5
+- Let the package build its own documentation
+
 * Sat May 24 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-4
 - Remove the gnome-vfs plugin, and see what breaks
 
