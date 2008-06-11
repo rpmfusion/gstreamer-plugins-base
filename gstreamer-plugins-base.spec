@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.19
-Release:  	5%{?dist}	
+Release:  	6%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -17,6 +17,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Patch0:		gstpb-0.10.15-cd-speed.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=518082
 Patch1:		gstreamer-0.10.19-alsasink-mixed-record-playback-tracks.patch
+# http://bugzilla.gnome.org/show_bug.cgi?id=536849
+Patch2:		gstreamer-plugins-base-0.10.19-gio-fixes.patch
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -54,6 +56,9 @@ This package contains a set of well-maintained base plug-ins.
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .cd-speed
 %patch1 -p1 -b .alsasink
+pushd ext/gio/
+%patch2 -p0 -b .gio
+popd
 
 %build
 %configure \
@@ -241,6 +246,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Jun 11 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-6
+- Add patch full of gio fixes
+
 * Mon Jun 02 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-5
 - Let the package build its own documentation
 
