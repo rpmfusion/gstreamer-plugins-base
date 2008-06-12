@@ -56,9 +56,7 @@ This package contains a set of well-maintained base plug-ins.
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .cd-speed
 %patch1 -p1 -b .alsasink
-pushd ext/gio/
-%patch2 -p0 -b .gio
-popd
+%patch2 -p1 -b .gio
 
 %build
 %configure \
