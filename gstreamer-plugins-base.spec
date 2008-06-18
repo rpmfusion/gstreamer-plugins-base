@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.19
+%define         _gst            0.10.20
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.19
-Release:  	6%{?dist}	
+Version: 	0.10.20
+Release:  	1%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -244,6 +244,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Jun 18 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.20-1
+- Update to 0.10.20
+
 * Wed Jun 11 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.19-6
 - Add patch full of gio fixes
 
