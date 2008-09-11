@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.20
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -242,6 +242,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Sep 11 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.20-3
+- Rebuild for new RPM provides
+
 * Sat Aug 23 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.20-2
 - Fix useless codeina popup when playing recent ogg files (#458404)
 
