@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.20
-Release:  	4%{?dist}	
+Release:  	5%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -76,6 +76,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+rm -f $RPM_BUILD_ROOT%{_bindir}/gst-visualise*
+rm -f $RPM_BUILD_ROOT%{_docdir}/man1/gst-visualise*
 
 %find_lang gst-plugins-base-%{majorminor}
 
@@ -85,10 +87,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f gst-plugins-base-%{majorminor}.lang
 %defattr(-, root, root)
 %doc AUTHORS COPYING README REQUIREMENTS
-
-# helper programs
-%{_bindir}/gst-visualise-%{majorminor}
-%{_mandir}/man1/gst-visualise-%{majorminor}*
 
 # libraries
 %{_libdir}/libgstinterfaces-%{majorminor}.so.*
@@ -242,6 +240,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Sep 24 2008 Jeremy Katz <katzj@redhat.com> - 0.10.20-5
+- gst-visualize is just a test program that we don't really need to include 
+  and having it means that perl gets pulled into small images (#462620)
+
 * Fri Sep 12 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.20-4
 - Another rebuild
 
