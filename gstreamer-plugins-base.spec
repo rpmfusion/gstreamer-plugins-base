@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.20
+%define         _gst            0.10.21
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.21
-Release:  	1%{?dist}	
+Release:  	2%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -32,6 +32,7 @@ BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
 BuildRequires:  libvisual-devel
+BuildRequires:  gtk2-devel
 Obsoletes:	gstreamer-plugins
 
 # documentation
@@ -236,6 +237,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Oct 03 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.21-2
+- Update the gstreamer requirement
+- Add a gtk2-devel BR, so that the test-colorkey program will be built
+
 * Fri Oct 03 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.21-1
 - Update to 0.10.21
 
