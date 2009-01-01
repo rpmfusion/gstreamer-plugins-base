@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.21
-Release:  	2%{?dist}	
+Release:  	3%{?dist}	
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -33,6 +33,7 @@ BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
 BuildRequires:  libvisual-devel
 BuildRequires:  gtk2-devel
+BuildRequires:  pkgconfig
 Obsoletes:	gstreamer-plugins
 
 # documentation
@@ -237,6 +238,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jan 1 2009 - Rex Dieter <rdieter@fedoraproject.org> - 0.10.2-3
+- rebuild for pkgconfig deps (#478577)
+
 * Fri Oct 03 2008 - Bastien Nocera <bnocera@redhat.com> - 0.10.21-2
 - Update the gstreamer requirement
 - Add a gtk2-devel BR, so that the test-colorkey program will be built
