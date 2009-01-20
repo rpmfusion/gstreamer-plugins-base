@@ -99,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstpbutils-%{majorminor}.so.*
 %{_libdir}/libgstrtsp-%{majorminor}.so.*
 %{_libdir}/libgstsdp-%{majorminor}.so.*
+%{_libdir}/libgstapp-%{majorminor}.so.*
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
@@ -121,6 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstqueue2.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgio.so
+%{_libdir}/gstreamer-%{majorminor}/libgstapp.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
@@ -145,8 +147,13 @@ GStreamer Base Plugins library development and header files.
 %files devel
 %defattr(-, root, root)
 # plugin helper library headers
+%dir %{_includedir}/gstreamer-%{majorminor}/gst/app
+%{_includedir}/gstreamer-%{majorminor}/gst/app/gstappbuffer.h
+%{_includedir}/gstreamer-%{majorminor}/gst/app/gstappsink.h
+%{_includedir}/gstreamer-%{majorminor}/gst/app/gstappsrc.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/audio
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/audio.h
+%{_includedir}/gstreamer-%{majorminor}/gst/audio/audio-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioclock.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiosink.h
@@ -215,6 +222,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideosink.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/video.h
+%{_includedir}/gstreamer-%{majorminor}/gst/video/video-enumtypes.h
 
 %{_libdir}/libgstaudio-%{majorminor}.so
 %{_libdir}/libgstinterfaces-%{majorminor}.so
@@ -228,6 +236,7 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstrtsp-%{majorminor}.so
 %{_libdir}/libgstsdp-%{majorminor}.so
 %{_libdir}/libgstfft-%{majorminor}.so
+%{_libdir}/libgstapp-%{majorminor}.so
 
 # pkg-config files
 %{_libdir}/pkgconfig/*.pc
