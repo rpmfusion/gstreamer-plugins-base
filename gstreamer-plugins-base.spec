@@ -155,7 +155,6 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstbaseaudiosrc.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstringbuffer.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/mixerutils.h
-%{_includedir}/gstreamer-%{majorminor}/gst/audio/multichannel-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/multichannel.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/cdda
 %{_includedir}/gstreamer-%{majorminor}/gst/cdda/gstcddabasesrc.h
