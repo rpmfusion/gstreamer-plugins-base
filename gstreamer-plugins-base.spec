@@ -4,8 +4,8 @@
 %define         _gst            0.10.22
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.22
-Release:  	2%{?dist}
+Version: 	0.10.22.4
+Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -246,6 +246,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed May 06 2009 Bastien Nocera <bnocera@redhat.com> 0.10.22.4-1
+- Update to 0.10.22.4
+
 * Tue Feb 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.22-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
