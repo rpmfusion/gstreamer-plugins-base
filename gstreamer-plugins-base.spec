@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.23
-Release:  	1%{?dist}
+Release:  	2%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -15,6 +15,10 @@ Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Patch0:		gstpb-0.10.15-cd-speed.patch
+# http://bugzilla.gnome.org/show_bug.cgi?id=586356
+# https://bugzilla.redhat.com/show_bug.cgi?id=506767
+Patch1:		0001-Move-plugin-selector-to-gst-plugins-base.patch
+BuildRequires:	automake autoconf libtool
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -53,6 +57,9 @@ This package contains a set of well-maintained base plug-ins.
 %prep
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .cd-speed
+%patch1 -p1 -b .input-selector
+libtoolize -f
+autoreconf
 
 %build
 %configure \
@@ -109,6 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstdecodebin.so
 %{_libdir}/gstreamer-%{majorminor}/libgstdecodebin2.so
 %{_libdir}/gstreamer-%{majorminor}/libgstplaybin.so
+%{_libdir}/gstreamer-%{majorminor}/libgstselector.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttypefindfunctions.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideotestsrc.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudiorate.so
@@ -246,6 +254,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Jun 19 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23-2
+- Move input-selector plugin from -bad to -base (#506767)
+
 * Mon May 11 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23-1
 - Update to 0.10.23
 
