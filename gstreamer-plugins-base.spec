@@ -36,6 +36,7 @@ BuildRequires:  pango-devel
 BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
 BuildRequires:  libvisual-devel
+BuildRequires:  libgudev-devel
 BuildRequires:  gtk2-devel
 BuildRequires:  pkgconfig
 Obsoletes:	gstreamer-plugins
@@ -67,7 +68,8 @@ autoreconf
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
   --enable-gtk-doc \
   --enable-experimental \
-  --disable-static
+  --disable-static \
+  --disable-examples
 
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
