@@ -14,7 +14,7 @@ URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Patch0:		gstpb-0.10.15-cd-speed.patch
+#Patch0:		gstpb-0.10.15-cd-speed.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=586356
 # https://bugzilla.redhat.com/show_bug.cgi?id=506767
 Patch1:		0001-Move-plugin-selector-to-gst-plugins-base.patch
@@ -56,7 +56,7 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .cd-speed
+#%patch0 -p1 -b .cd-speed
 %patch1 -p1 -b .input-selector
 libtoolize -f
 autoreconf
