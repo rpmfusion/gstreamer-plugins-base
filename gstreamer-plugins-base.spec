@@ -4,8 +4,8 @@
 %define         _gst            0.10.22
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.23
-Release:  	2%{?dist}
+Version: 	0.10.23.2
+Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -254,6 +254,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jul 16 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23.2-1
+- Update to 0.10.23.2
+
 * Fri Jun 19 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23-2
 - Move input-selector plugin from -bad to -base (#506767)
 
