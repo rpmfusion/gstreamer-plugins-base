@@ -4,7 +4,7 @@
 %define         _gst            0.10.22
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.23.2
+Version: 	0.10.23.3
 Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -69,7 +69,7 @@ autoreconf
   --enable-gtk-doc \
   --enable-experimental \
   --disable-static \
-  --disable-examples
+  --disable-gnome_vfs
 
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
@@ -256,6 +256,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jul 21 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23.3-1
+- Udpate to 0.10.23.3
+
 * Thu Jul 16 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23.2-1
 - Update to 0.10.23.2
 
