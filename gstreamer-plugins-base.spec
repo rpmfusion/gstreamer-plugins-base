@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.23.3
-Release:  	1%{?dist}
+Release:  	2%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -13,12 +13,6 @@ License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
-#Patch0:		gstpb-0.10.15-cd-speed.patch
-# http://bugzilla.gnome.org/show_bug.cgi?id=586356
-# https://bugzilla.redhat.com/show_bug.cgi?id=506767
-Patch1:		0001-Move-plugin-selector-to-gst-plugins-base.patch
-BuildRequires:	automake autoconf libtool
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -57,10 +51,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-#%patch0 -p1 -b .cd-speed
-%patch1 -p1 -b .input-selector
-libtoolize -f
-autoreconf
 
 %build
 %configure \
@@ -256,6 +246,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jul 21 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23.3-2
+- Remove old patches (the input-selector has been moved to be
+  an internal playbin2 plugin)
+
 * Tue Jul 21 2009 Bastien Nocera <bnocera@redhat.com> 0.10.23.3-1
 - Udpate to 0.10.23.3
 
