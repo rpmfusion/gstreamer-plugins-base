@@ -5,7 +5,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.24
-Release:  	1%{?dist}
+Release:  	2%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -13,6 +13,8 @@ License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Patch0:		avf-support.patch
 
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
@@ -51,6 +53,7 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .avf
 
 %build
 %configure \
@@ -245,6 +248,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Aug 26 2009 Adam Jackson <ajax@redhat.com> 0.10.24-2
+- avf-support.patch: Add AVF file recognition (gnome #593117)
+
 * Wed Aug 05 2009 Bastien Nocera <bnocera@redhat.com> 0.10.24-1
 - Update to 0.10.24
 

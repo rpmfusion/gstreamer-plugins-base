@@ -1,0 +1,37 @@
+Ref: http://bugzilla.gnome.org/show_bug.cgi?id=593117
+
+diff -up gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-ids.h.jx gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-ids.h
+--- gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-ids.h.jx	2009-07-14 06:03:45.000000000 -0400
++++ gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-ids.h	2009-08-26 11:16:20.000000000 -0400
+@@ -33,6 +33,7 @@ G_BEGIN_DECLS
+ 
+ /* tags */
+ #define GST_RIFF_TAG_RIFF GST_MAKE_FOURCC ('R','I','F','F')
++#define GST_RIFF_TAG_AVF0 GST_MAKE_FOURCC ('A','V','F','0')
+ #define GST_RIFF_TAG_RIFX GST_MAKE_FOURCC ('R','I','F','X')
+ #define GST_RIFF_TAG_LIST GST_MAKE_FOURCC ('L','I','S','T')
+ #define GST_RIFF_TAG_avih GST_MAKE_FOURCC ('a','v','i','h')
+diff -up gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-read.c.jx gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-read.c
+--- gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-read.c.jx	2009-07-14 06:03:45.000000000 -0400
++++ gst-plugins-base-0.10.24/gst-libs/gst/riff/riff-read.c	2009-08-26 11:16:54.000000000 -0400
+@@ -226,7 +226,7 @@ gst_riff_parse_file_header (GstElement *
+ 
+   data = GST_BUFFER_DATA (buf);
+   tag = GST_READ_UINT32_LE (data);
+-  if (tag != GST_RIFF_TAG_RIFF)
++  if (tag != GST_RIFF_TAG_RIFF && tag != GST_RIFF_TAG_AVF0)
+     goto not_riff;
+ 
+   *doctype = GST_READ_UINT32_LE (data + 8);
+diff -up gst-plugins-base-0.10.24/gst/typefind/gsttypefindfunctions.c.jx gst-plugins-base-0.10.24/gst/typefind/gsttypefindfunctions.c
+--- gst-plugins-base-0.10.24/gst/typefind/gsttypefindfunctions.c.jx	2009-08-04 18:26:58.000000000 -0400
++++ gst-plugins-base-0.10.24/gst/typefind/gsttypefindfunctions.c	2009-08-26 11:17:56.000000000 -0400
+@@ -3147,7 +3147,7 @@ riff_type_find (GstTypeFind * tf, gpoint
+   GstTypeFindData *riff_data = (GstTypeFindData *) private;
+   guint8 *data = gst_type_find_peek (tf, 0, 12);
+ 
+-  if (data && memcmp (data, "RIFF", 4) == 0) {
++  if (data && (memcmp (data, "RIFF", 4) == 0 || memcmp (data, "AVF0", 4) == 0)) {
+     data += 8;
+     if (memcmp (data, riff_data->data, 4) == 0)
+       gst_type_find_suggest (tf, riff_data->probability, riff_data->caps);
