@@ -14,8 +14,6 @@ URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Patch0:		avf-support.patch
-
 Requires:       %{gstreamer} >= %{_gst}
 Requires:	liboil >= 0.3.12-9
 BuildRequires: 	%{gstreamer}-devel >= %{_gst}
@@ -53,7 +51,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .avf
 
 %build
 %configure \
