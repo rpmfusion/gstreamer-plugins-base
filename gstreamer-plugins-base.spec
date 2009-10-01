@@ -1,11 +1,11 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.24
+%define         _gst            0.10.24.4
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.24
-Release:  	2%{?dist}
+Version: 	0.10.24.4
+Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -248,6 +248,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Oct 01 2009 Bastien Nocera <bnocera@redhat.com> 0.10.24.4-1
+- Update to pre-release
+
 * Wed Aug 26 2009 Adam Jackson <ajax@redhat.com> 0.10.24-2
 - avf-support.patch: Add AVF file recognition (gnome #593117)
 
