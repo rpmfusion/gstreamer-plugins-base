@@ -181,7 +181,7 @@ GStreamer Base Plugins library development and header files.
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tunerchannel.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/tunernorm.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/videoorientation.h
-%{_includedir}/gstreamer-%{majorminor}/gst/interfaces/interfaces/streamvolume.h
+%{_includedir}/gstreamer-%{majorminor}/gst/interfaces/streamvolume.h
 %{_includedir}/gstreamer-%{majorminor}/gst/interfaces/xoverlay.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer
 %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer/gstnetbuffer.h
