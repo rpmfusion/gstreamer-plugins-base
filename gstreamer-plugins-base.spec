@@ -1,10 +1,8 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-%define         _gst            0.10.24.4
-
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.24.4
+Version: 	0.10.25
 Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -14,9 +12,9 @@ URL:		http://gstreamer.freedesktop.org/
 Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:       %{gstreamer} >= %{_gst}
+Requires:       %{gstreamer} >= %{version}
 Requires:	liboil >= 0.3.12-9
-BuildRequires: 	%{gstreamer}-devel >= %{_gst}
+BuildRequires: 	%{gstreamer}-devel >= %{version}
 
 BuildRequires:  gettext
 BuildRequires:  gcc-c++
@@ -246,6 +244,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Oct 05 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-1
+- Update to 0.10.25
+- Require a gstreamer of the same version as us (#503707)
+
 * Thu Oct 01 2009 Bastien Nocera <bnocera@redhat.com> 0.10.24.4-1
 - Update to pre-release
 
