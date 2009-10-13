@@ -3,7 +3,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.25
-Release:  	1%{?dist}
+Release:  	2%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -33,6 +33,11 @@ BuildRequires:  gtk2-devel
 BuildRequires:  pkgconfig
 Obsoletes:	gstreamer-plugins
 
+# https://bugzilla.gnome.org/show_bug.cgi?id=587704
+Patch0:		gstpb-no-subtitle-errors.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=591677
+Patch1:		gstpb-fix-missing-plugins.patch
+
 # documentation
 BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
@@ -49,6 +54,8 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .subtitle-errors
+%patch1 -p1 -b .missing-plugins
 
 %build
 %configure \
@@ -244,6 +251,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Oct 13 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-2
+- Add patches to fix some playbin2 bugs (#518880)
+
 * Mon Oct 05 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-1
 - Update to 0.10.25
 - Require a gstreamer of the same version as us (#503707)
