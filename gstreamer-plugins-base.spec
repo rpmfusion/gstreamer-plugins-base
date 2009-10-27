@@ -3,7 +3,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.25
-Release:  	2%{?dist}
+Release:  	3%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -37,6 +37,11 @@ Obsoletes:	gstreamer-plugins
 Patch0:		gstpb-no-subtitle-errors.patch
 # https://bugzilla.gnome.org/show_bug.cgi?id=591677
 Patch1:		gstpb-fix-missing-plugins.patch
+# Revert http://cgit.freedesktop.org/gstreamer/gst-plugins-base/commit/?id=35cddfb1e3ddc6513c7daca093d72151a13e9342
+# We have a new enough pulsesink
+# https://bugzilla.gnome.org/show_bug.cgi?id=599105
+Patch2:		pulsesink-disable-old-version-hack.patch
+Conflicts:	gstreamer-plugins-good < 0.10.16-3
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -56,6 +61,7 @@ This package contains a set of well-maintained base plug-ins.
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .subtitle-errors
 %patch1 -p1 -b .missing-plugins
+%patch2 -p1 -R -b .old-pulsesink
 
 %build
 %configure \
@@ -251,6 +257,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Oct 27 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-3
+- Fix audio disappearing with newer pulsesink
+
 * Tue Oct 13 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-2
 - Add patches to fix some playbin2 bugs (#518880)
 
