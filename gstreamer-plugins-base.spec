@@ -3,7 +3,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.25
-Release:  	3%{?dist}
+Release:  	4%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -42,6 +42,8 @@ Patch1:		gstpb-fix-missing-plugins.patch
 # https://bugzilla.gnome.org/show_bug.cgi?id=599105
 Patch2:		pulsesink-disable-old-version-hack.patch
 Conflicts:	gstreamer-plugins-good < 0.10.16-3
+# https://bugzilla.gnome.org/show_bug.cgi?id=600027
+Patch3:		gstpb-playbin-notify.patch
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -62,6 +64,7 @@ This package contains a set of well-maintained base plug-ins.
 %patch0 -p1 -b .subtitle-errors
 %patch1 -p1 -b .missing-plugins
 %patch2 -p1 -R -b .old-pulsesink
+%patch3 -p1 -b .volume-notify
 
 %build
 %configure \
@@ -257,6 +260,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Oct 29 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-4
+- Make playbin push volume changes to the front-end
+
 * Tue Oct 27 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-3
 - Fix audio disappearing with newer pulsesink
 
