@@ -1,3 +1,38 @@
+diff --git a/gst/playback/gstplaybin2.c b/gst/playback/gstplaybin2.c
+index 1387a80..643c763 100644
+--- a/gst/playback/gstplaybin2.c
++++ b/gst/playback/gstplaybin2.c
+@@ -1091,6 +1091,18 @@ free_group (GstPlayBin * playbin, GstSourceGroup * group)
+ }
+ 
+ static void
++notify_volume_cb (GObject * selector, GParamSpec * pspec, GstPlayBin * playbin)
++{
++  g_object_notify (G_OBJECT (playbin), "volume");
++}
++
++static void
++notify_mute_cb (GObject * selector, GParamSpec * pspec, GstPlayBin * playbin)
++{
++  g_object_notify (G_OBJECT (playbin), "mute");
++}
++
++static void
+ gst_play_bin_init (GstPlayBin * playbin)
+ {
+   GstFactoryListType type;
+@@ -1116,6 +1128,11 @@ gst_play_bin_init (GstPlayBin * playbin)
+   playbin->playsink = g_object_new (GST_TYPE_PLAY_SINK, NULL);
+   gst_bin_add (GST_BIN_CAST (playbin), GST_ELEMENT_CAST (playbin->playsink));
+   gst_play_sink_set_flags (playbin->playsink, DEFAULT_FLAGS);
++  /* Connect to notify::volume and notify::mute signals for proxying */
++  g_signal_connect (playbin->playsink, "notify::volume",
++      G_CALLBACK (notify_volume_cb), playbin);
++  g_signal_connect (playbin->playsink, "notify::mute",
++      G_CALLBACK (notify_mute_cb), playbin);
+ 
+   playbin->encoding = g_strdup (DEFAULT_SUBTITLE_ENCODING);
+ 
 diff --git a/gst/playback/gstplaysink.c b/gst/playback/gstplaysink.c
 index 85f7abd..9809196 100644
 --- a/gst/playback/gstplaysink.c
@@ -86,38 +121,64 @@ index 85f7abd..9809196 100644
        chain->volume = NULL;
        chain->mute = NULL;
      } else {
-diff --git a/gst/playback/gstplaybin2.c b/gst/playback/gstplaybin2.c
-index 1387a80..643c763 100644
---- a/gst/playback/gstplaybin2.c
-+++ b/gst/playback/gstplaybin2.c
-@@ -1091,6 +1091,18 @@ free_group (GstPlayBin * playbin, GstSourceGroup * group)
+diff --git a/gst/playback/gstplaysink.c b/gst/playback/gstplaysink.c
+index 9809196..a481203 100644
+--- a/gst/playback/gstplaysink.c
++++ b/gst/playback/gstplaysink.c
+@@ -1422,15 +1422,24 @@ gen_subp_chain (GstPlaySink * playsink)
  }
  
  static void
-+notify_volume_cb (GObject * selector, GParamSpec * pspec, GstPlayBin * playbin)
-+{
-+  g_object_notify (G_OBJECT (playbin), "volume");
-+}
-+
-+static void
-+notify_mute_cb (GObject * selector, GParamSpec * pspec, GstPlayBin * playbin)
-+{
-+  g_object_notify (G_OBJECT (playbin), "mute");
-+}
-+
-+static void
- gst_play_bin_init (GstPlayBin * playbin)
+-notify_volume_cb (GObject * selector, GParamSpec * pspec,
+-    GstPlaySink * playsink)
++notify_volume_cb (GObject * object, GParamSpec * pspec, GstPlaySink * playsink)
  {
-   GstFactoryListType type;
-@@ -1116,6 +1128,11 @@ gst_play_bin_init (GstPlayBin * playbin)
-   playbin->playsink = g_object_new (GST_TYPE_PLAY_SINK, NULL);
-   gst_bin_add (GST_BIN_CAST (playbin), GST_ELEMENT_CAST (playbin->playsink));
-   gst_play_sink_set_flags (playbin->playsink, DEFAULT_FLAGS);
-+  /* Connect to notify::volume and notify::mute signals for proxying */
-+  g_signal_connect (playbin->playsink, "notify::volume",
-+      G_CALLBACK (notify_volume_cb), playbin);
-+  g_signal_connect (playbin->playsink, "notify::mute",
-+      G_CALLBACK (notify_mute_cb), playbin);
++  gdouble vol;
++
++  g_object_get (object, "volume", &vol, NULL);
++  playsink->volume = vol;
++
+   g_object_notify (G_OBJECT (playsink), "volume");
+ }
  
-   playbin->encoding = g_strdup (DEFAULT_SUBTITLE_ENCODING);
+ static void
+-notify_mute_cb (GObject * selector, GParamSpec * pspec, GstPlaySink * playsink)
++notify_mute_cb (GObject * object, GParamSpec * pspec, GstPlaySink * playsink)
+ {
++  gboolean mute;
++
++  g_object_get (object, "mute", &mute, NULL);
++  playsink->mute = mute;
++
+   g_object_notify (G_OBJECT (playsink), "mute");
+ }
  
+diff --git a/gst/playback/gstplaysink.c b/gst/playback/gstplaysink.c
+index a481203..8c89203 100644
+--- a/gst/playback/gstplaysink.c
++++ b/gst/playback/gstplaysink.c
+@@ -1538,6 +1538,7 @@ gen_audio_chain (GstPlaySink * playsink, gboolean raw, gboolean queue)
+     /* use the sink to control the volume and mute */
+     if (playsink->volume_changed) {
+       g_object_set (G_OBJECT (chain->volume), "volume", playsink->volume, NULL);
++      playsink->volume_changed = FALSE;
+     }
+     if (playsink->mute_changed) {
+       if (chain->mute) {
+@@ -1546,6 +1547,7 @@ gen_audio_chain (GstPlaySink * playsink, gboolean raw, gboolean queue)
+         if (playsink->mute)
+           g_object_set (chain->volume, "volume", (gdouble) 0.0, NULL);
+       }
++      playsink->mute_changed = FALSE;
+     }
+   } else {
+     /* no volume, we need to add a volume element when we can */
+@@ -1718,6 +1720,7 @@ setup_audio_chain (GstPlaySink * playsink, gboolean raw, gboolean queue)
+           playsink->volume);
+       /* use the sink to control the volume */
+       g_object_set (G_OBJECT (chain->volume), "volume", playsink->volume, NULL);
++      playsink->volume_changed = FALSE;
+     }
+ 
+     g_signal_connect (chain->volume, "notify::volume",
+

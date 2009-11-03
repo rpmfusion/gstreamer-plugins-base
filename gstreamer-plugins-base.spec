@@ -42,8 +42,8 @@ Patch1:		gstpb-fix-missing-plugins.patch
 # https://bugzilla.gnome.org/show_bug.cgi?id=599105
 Patch2:		pulsesink-disable-old-version-hack.patch
 Conflicts:	gstreamer-plugins-good < 0.10.16-3
-# https://bugzilla.gnome.org/show_bug.cgi?id=600027
-Patch3:		gstpb-playbin-notify.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=596164#c12
+Patch3:		gstpb-playbin-proxy-volume.patch
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -260,6 +260,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Nov 03 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-5
+- Update volume notification patch
+
 * Thu Oct 29 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-4
 - Make playbin push volume changes to the front-end
 
