@@ -2,14 +2,22 @@
 %define         majorminor      0.10
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.25
-Release:  	5%{?dist}
+Version: 	0.10.25.1
+Release:  	2%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
-Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+# Tarfile created using git
+# git clone git://anongit.freedesktop.org/gstreamer/gst-plugins-base
+# git reset --hard %{gitversion}
+# ./autogen.sh --enable-gtk-doc && make all dist
+# mv gstreamer-%{version}.tar.gz gstreamer-%{version}-%{gitdate}.tar.gz
+#Source:	http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+%define gitdate 20091111
+%define git_version 1da5a3f
+Source:		gst-plugins-base-%{version}-%{gitdate}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{version}
@@ -33,17 +41,18 @@ BuildRequires:  gtk2-devel
 BuildRequires:  pkgconfig
 Obsoletes:	gstreamer-plugins
 
-# https://bugzilla.gnome.org/show_bug.cgi?id=587704
-Patch0:		gstpb-no-subtitle-errors.patch
-# https://bugzilla.gnome.org/show_bug.cgi?id=591677
-Patch1:		gstpb-fix-missing-plugins.patch
 # Revert http://cgit.freedesktop.org/gstreamer/gst-plugins-base/commit/?id=35cddfb1e3ddc6513c7daca093d72151a13e9342
 # We have a new enough pulsesink
 # https://bugzilla.gnome.org/show_bug.cgi?id=599105
-Patch2:		pulsesink-disable-old-version-hack.patch
+Patch1:		pulsesink-disable-old-version-hack.patch
 Conflicts:	gstreamer-plugins-good < 0.10.16-3
-# https://bugzilla.gnome.org/show_bug.cgi?id=596164#c12
-Patch3:		gstpb-playbin-proxy-volume.patch
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=537170
+# https://bugzilla.gnome.org/show_bug.cgi?id=601627
+Patch2:		0001-theoradec-Keep-timestamp-from-incoming-buffer-if-it-.patch
+# https://bugzilla.redhat.com/show_bug.cgi?id=537559
+# https://bugzilla.gnome.org/show_bug.cgi?id=602924
+Patch3:		0001-Revert-textoverlay-First-draw-outline-text-and-then-.patch
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -61,10 +70,9 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .subtitle-errors
-%patch1 -p1 -b .missing-plugins
-%patch2 -p1 -R -b .old-pulsesink
-%patch3 -p1 -b .volume-notify
+%patch1 -p1 -b .old-pulsesink
+%patch2 -p1 -b .theoradec-timestamps
+%patch3 -p1 -b .text-overlay
 
 %build
 %configure \
@@ -133,7 +141,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
-%{_libdir}/gstreamer-%{majorminor}/libgstqueue2.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgio.so
 %{_libdir}/gstreamer-%{majorminor}/libgstapp.so
 
@@ -260,6 +267,12 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Nov 30 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25.1-2
+- Update to snapshot
+
+* Fri Nov 06 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-6
+- Fix hangs when loading a movie with an associated subtitle in Totem
+
 * Tue Nov 03 2009 Bastien Nocera <bnocera@redhat.com> 0.10.25-5
 - Update volume notification patch
 

@@ -1,0 +1,47 @@
+From 83932577325d030bfa40a0c1dbc22683957b6b2a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Sebastian=20Dr=C3=B6ge?= <sebastian.droege@collabora.co.uk>
+Date: Thu, 26 Nov 2009 14:30:33 +0100
+Subject: [PATCH 1/5] Revert "textoverlay: First draw outline text and then the real text"
+
+This reverts commit 60aa09d28c1f9fd29b56876d7ac6c0366d6cef4d.
+
+First drawing the real text and then the outline produces ugly
+text in lower resolutions. The outline line width needs to be somehow
+changed relative to the resolution. Fixes bug #602924.
+---
+ ext/pango/gsttextoverlay.c |   12 ++++++------
+ 1 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/ext/pango/gsttextoverlay.c b/ext/pango/gsttextoverlay.c
+index a79cdd7..12428c6 100644
+--- a/ext/pango/gsttextoverlay.c
++++ b/ext/pango/gsttextoverlay.c
+@@ -1253,12 +1253,6 @@ gst_text_overlay_render_pangocairo (GstTextOverlay * overlay,
+   pango_cairo_show_layout (cr, overlay->layout);
+   cairo_restore (cr);
+ 
+-  /* draw text */
+-  cairo_save (cr);
+-  cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
+-  pango_cairo_show_layout (cr, overlay->layout);
+-  cairo_restore (cr);
+-
+   /* draw outline text */
+   cairo_save (cr);
+   cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
+@@ -1267,6 +1261,12 @@ gst_text_overlay_render_pangocairo (GstTextOverlay * overlay,
+   cairo_stroke (cr);
+   cairo_restore (cr);
+ 
++  /* draw text */
++  cairo_save (cr);
++  cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
++  pango_cairo_show_layout (cr, overlay->layout);
++  cairo_restore (cr);
++
+   cairo_destroy (cr);
+   cairo_surface_destroy (surface);
+   overlay->image_width = width;
+-- 
+1.6.5.2
+

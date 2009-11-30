@@ -1,0 +1,36 @@
+From 05aa1959816516d69b32e134661de80916698ff7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Olivier=20Cr=C3=AAte?= <olivier.crete@collabora.co.uk>
+Date: Wed, 11 Nov 2009 19:32:01 -0500
+Subject: [PATCH 01/59] theoradec: Keep timestamp from incoming buffer if it is valid
+
+Fixes bug #601627.
+---
+ ext/theora/theoradec.c |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/ext/theora/theoradec.c b/ext/theora/theoradec.c
+index 5a4a98d..96bacf2 100644
+--- a/ext/theora/theoradec.c
++++ b/ext/theora/theoradec.c
+@@ -1333,15 +1333,15 @@ theora_dec_decode_buffer (GstTheoraDec * dec, GstBuffer * buf)
+ 
+   GST_LOG_OBJECT (dec, "decode buffer of size %ld", packet.bytes);
+ 
+-  if (dec->have_header) {
++  if (GST_BUFFER_TIMESTAMP_IS_VALID (buf)) {
++    dec->last_timestamp = GST_BUFFER_TIMESTAMP (buf);
++  } else if (dec->have_header) {
+     if (packet.granulepos != -1) {
+       dec->granulepos = packet.granulepos;
+       dec->last_timestamp = _theora_granule_start_time (dec, packet.granulepos);
+     } else if (dec->last_timestamp != -1) {
+       dec->last_timestamp = _theora_granule_start_time (dec, dec->granulepos);
+     }
+-    if (dec->last_timestamp == -1 && GST_BUFFER_TIMESTAMP_IS_VALID (buf))
+-      dec->last_timestamp = GST_BUFFER_TIMESTAMP (buf);
+   } else {
+     dec->last_timestamp = -1;
+   }
+-- 
+1.6.5.2
+
