@@ -3,7 +3,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.26
-Release:  	2%{?dist}
+Release:  	3%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -245,6 +245,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-3
+- Patch Makefile.in, too and not just Makefile.am
+
 * Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-2
 - Fix build to conform to new DSO rules
 
