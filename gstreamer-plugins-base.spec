@@ -2,16 +2,15 @@
 %define         majorminor      0.10
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.26
-Release:  	3%{?dist}
+Version: 	0.10.26.2
+Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
-Source:		http://gstreamer.freedesktop.org/data/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
+Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Patch0:         0001-build-link-to-libm-in-examples-that-use-it.patch
 
 Requires:       %{gstreamer} >= %{version}
 Requires:	liboil >= 0.3.12-9
@@ -50,7 +49,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .add-needed
 
 %build
 %configure \
@@ -245,6 +243,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Feb 19 2010 Benjamin Otte <otte@redhat.com> 0.10.26.2-1
+- Update to pre-release
+
 * Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-3
 - Patch Makefile.in, too and not just Makefile.am
 
