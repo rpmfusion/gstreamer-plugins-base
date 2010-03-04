@@ -2,7 +2,7 @@
 %define         majorminor      0.10
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.26.3
+Version: 	0.10.26.4
 Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
@@ -15,6 +15,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       %{gstreamer} >= %{version}
 Requires:	liboil >= 0.3.12-9
 BuildRequires: 	%{gstreamer}-devel >= %{version}
+BuildRequires:  gobject-introspection-devel >= 0.6.3
+BuildRequires:  gir-repository-devel >= 0.6.5-6
 
 BuildRequires:  gettext
 BuildRequires:  gcc-c++
@@ -97,6 +99,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgstrtsp-%{majorminor}.so.*
 %{_libdir}/libgstsdp-%{majorminor}.so.*
 %{_libdir}/libgstapp-%{majorminor}.so.*
+
+# gobject-introspection files
+%{_libdir}/girepository-1.0/GstApp-0.10.typelib
+%{_libdir}/girepository-1.0/GstAudio-0.10.typelib
+%{_libdir}/girepository-1.0/GstFft-0.10.typelib
+%{_libdir}/girepository-1.0/GstInterfaces-0.10.typelib
+%{_libdir}/girepository-1.0/GstNetbuffer-0.10.typelib
+%{_libdir}/girepository-1.0/GstPbutils-0.10.typelib
+%{_libdir}/girepository-1.0/GstRiff-0.10.typelib
+%{_libdir}/girepository-1.0/GstRtp-0.10.typelib
+%{_libdir}/girepository-1.0/GstRtsp-0.10.typelib
+%{_libdir}/girepository-1.0/GstSdp-0.10.typelib
+%{_libdir}/girepository-1.0/GstTag-0.10.typelib
+%{_libdir}/girepository-1.0/GstVideo-0.10.typelib
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
@@ -235,6 +251,19 @@ GStreamer Base Plugins library development and header files.
 %{_libdir}/libgstfft-%{majorminor}.so
 %{_libdir}/libgstapp-%{majorminor}.so
 
+%{_datadir}/gir-1.0/GstApp-0.10.gir
+%{_datadir}/gir-1.0/GstAudio-0.10.gir
+%{_datadir}/gir-1.0/GstFft-0.10.gir
+%{_datadir}/gir-1.0/GstInterfaces-0.10.gir
+%{_datadir}/gir-1.0/GstNetbuffer-0.10.gir
+%{_datadir}/gir-1.0/GstPbutils-0.10.gir
+%{_datadir}/gir-1.0/GstRiff-0.10.gir
+%{_datadir}/gir-1.0/GstRtp-0.10.gir
+%{_datadir}/gir-1.0/GstRtsp-0.10.gir
+%{_datadir}/gir-1.0/GstSdp-0.10.gir
+%{_datadir}/gir-1.0/GstTag-0.10.gir
+%{_datadir}/gir-1.0/GstVideo-0.10.gir
+
 # pkg-config files
 %{_libdir}/pkgconfig/*.pc
 
@@ -243,6 +272,10 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Mar 06 2010 Benjamin Otte <otte@redhat.com> 0.10.26.4-1
+- Update pre-release
+- Add gobject-introspection support
+
 * Thu Feb 25 2010 Benjamin Otte <otte@redhat.com> 0.10.26.3-1
 - Update to pre-release
 
