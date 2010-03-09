@@ -2,14 +2,15 @@
 %define         majorminor      0.10
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.27
+Version: 	0.10.28
 Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
-Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
+#Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
+Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{version}
@@ -272,6 +273,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Mar 09 2010 Benjamin Otte <otte@redhat.com> 0.10.28-1
+- Update to 0.10.28
+
 * Mon Mar 08 2010 Benjamin Otte <otte@redhat.com> 0.10.27-1
 - Update to 0.10.27
 
