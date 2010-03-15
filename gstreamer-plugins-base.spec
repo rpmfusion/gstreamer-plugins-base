@@ -3,7 +3,7 @@
 
 Name: 		%{gstreamer}-plugins-base
 Version: 	0.10.28
-Release:  	2%{?dist}
+Release:  	3%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
@@ -17,6 +17,7 @@ Requires:       %{gstreamer} >= %{version}
 Requires:	liboil >= 0.3.12-9
 Requires:	iso-codes
 BuildRequires: 	%{gstreamer}-devel >= %{version}
+BuildRequires:	iso-codes-devel
 BuildRequires:  gobject-introspection-devel >= 0.6.3
 BuildRequires:  gir-repository-devel >= 0.6.5-6
 
@@ -274,6 +275,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Mar 15 2010 Benjamin Otte <otte@redhat.com> 0.10.28-3
+- BuildRequire iso-codes-devel (#573040)
+
 * Mon Mar 15 2010 Benjamin Otte <otte@redhat.com> 0.10.28-2
 - Require iso-codes (#573040)
 
