@@ -2,15 +2,15 @@
 %define         majorminor      0.10
 
 Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.28
-Release:  	3%{?dist}
+Version: 	0.10.28.2
+Release:  	1%{?dist}
 Summary: 	GStreamer streaming media framework base plug-ins
 
 Group: 		Applications/Multimedia
 License: 	LGPLv2+
 URL:		http://gstreamer.freedesktop.org/
-#Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
-Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
+#Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{version}
@@ -275,6 +275,9 @@ GStreamer Base Plugins library development and header files.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Apr 15 2010 Benjamin Otte <otte@redhat.com> 0.10.28.2-1
+- Update pre-release
+
 * Mon Mar 15 2010 Benjamin Otte <otte@redhat.com> 0.10.28-3
 - BuildRequire iso-codes-devel (#573040)
 
