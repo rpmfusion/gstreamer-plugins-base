@@ -153,11 +153,12 @@ rm -rf $RPM_BUILD_ROOT
 %package devel
 Summary: 	GStreamer Base Plugins Development files
 Group: 		Development/Libraries
-Requires: 	%{gstreamer}-plugins-base = %{version}
+Requires: 	%{name} = %{version}
 Obsoletes:	gstreamer-plugins-devel
 
 %description devel
-GStreamer Base Plugins library development and header files.
+GStreamer Base Plugins library development and header files. Documentation
+is provided by the gstreamer-plugins-base-devel-docs package.
 
 %files devel
 %defattr(-, root, root)
@@ -270,11 +271,27 @@ GStreamer Base Plugins library development and header files.
 # pkg-config files
 %{_libdir}/pkgconfig/*.pc
 
-# gtk-doc documentation
+%package devel-docs
+Summary: Developer documentation for GStreamer Base plugins library
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+# for /usr/share/gtk-doc/html
+Requires: gtk-doc
+BuildArch: noarch
+
+%description devel-docs
+This package contains developer documentation for the GStreamer Base Plugins
+library.
+
+%files devel-docs
+%defattr(-, root, root)
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Apr 27 2010 Benjamin Otte <otte@redhat.com> 0.10.28.3-2
+- Make a noarch devel-docs subpackage to avoid conflicts
+
 * Thu Apr 26 2010 Benjamin Otte <otte@redhat.com> 0.10.28.3-1
 - Update pre-release
 
