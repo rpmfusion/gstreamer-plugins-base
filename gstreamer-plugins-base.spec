@@ -53,7 +53,7 @@ plug-ins.
 This package contains a set of well-maintained base plug-ins.
 
 %prep
-%setup -q
+%setup -q -n gst-plugins-base-%{version}
 
 %build
 %configure \
