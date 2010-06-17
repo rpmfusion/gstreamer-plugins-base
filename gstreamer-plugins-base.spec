@@ -1,23 +1,23 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
 
-Name: 		%{gstreamer}-plugins-base
-Version: 	0.10.29
-Release:  	1%{?dist}
-Summary: 	GStreamer streaming media framework base plug-ins
+Name:           %{gstreamer}-plugins-base
+Version:        0.10.29
+Release:        1%{?dist}
+Summary:        GStreamer streaming media framework base plug-ins
 
-Group: 		Applications/Multimedia
-License: 	LGPLv2+
-URL:		http://gstreamer.freedesktop.org/
-#Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
-Source:		http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
+Group:          Applications/Multimedia
+License:        LGPLv2+
+URL:            http://gstreamer.freedesktop.org/
+#Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
+Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{version}
-Requires:	liboil >= 0.3.12-9
-Requires:	iso-codes
-BuildRequires: 	%{gstreamer}-devel >= %{version}
-BuildRequires:	iso-codes-devel
+Requires:       liboil >= 0.3.12-9
+Requires:       iso-codes
+BuildRequires:  %{gstreamer}-devel >= %{version}
+BuildRequires:  iso-codes-devel
 BuildRequires:  gobject-introspection-devel >= 0.6.3
 BuildRequires:  gir-repository-devel >= 0.6.5-6
 
@@ -36,7 +36,7 @@ BuildRequires:  libvisual-devel
 BuildRequires:  libgudev-devel
 BuildRequires:  gtk2-devel
 BuildRequires:  pkgconfig
-Obsoletes:	gstreamer-plugins
+Obsoletes:      gstreamer-plugins
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -53,7 +53,7 @@ plug-ins.
 This package contains a set of well-maintained base plug-ins.
 
 %prep
-%setup -q -n gst-plugins-base-%{version}
+%setup -q
 
 %build
 %configure \
@@ -151,10 +151,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gstreamer-%{majorminor}/libgstxvimagesink.so
 
 %package devel
-Summary: 	GStreamer Base Plugins Development files
-Group: 		Development/Libraries
-Requires: 	%{name} = %{version}
-Obsoletes:	gstreamer-plugins-devel
+Summary:        GStreamer Base Plugins Development files
+Group:          Development/Libraries
+Requires:       %{name} = %{version}
+Obsoletes:      gstreamer-plugins-devel
 
 %description devel
 GStreamer Base Plugins library development and header files. Documentation
@@ -551,7 +551,7 @@ library.
 * Mon May 22 2006 Matthias Clasen <mclasen@redhat.com> 0.10.7-1
 - Update to 0.10.7
 
-* Wed Mar 01 2006 Karsten Hopp <karsten@redhat.de> 0.10.3-3	
+* Wed Mar 01 2006 Karsten Hopp <karsten@redhat.de> 0.10.3-3
 - really add BuildRequires: cdparanoia-devel (#179034)
 
 * Mon Feb 20 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.3-2
