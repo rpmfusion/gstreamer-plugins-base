@@ -2,7 +2,7 @@
 %define         majorminor      0.10
 
 Name:           %{gstreamer}-plugins-base
-Version:        0.10.29
+Version:        0.10.29.2
 Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
@@ -19,22 +19,22 @@ Requires:       iso-codes
 BuildRequires:  %{gstreamer}-devel >= %{version}
 BuildRequires:  iso-codes-devel
 BuildRequires:  gobject-introspection-devel >= 0.6.3
-BuildRequires:  gir-repository-devel >= 0.6.5-6
 
 BuildRequires:  gettext
 BuildRequires:  gcc-c++
 
-BuildRequires:  libogg-devel >= 1.0
-BuildRequires:  libvorbis-devel >= 1.0
-BuildRequires:  libtheora-devel >= 1.0
-BuildRequires:  liboil-devel >= 0.3.6
 BuildRequires:  alsa-lib-devel
-BuildRequires:  pango-devel
-BuildRequires:  libXv-devel
 BuildRequires:  cdparanoia-devel
-BuildRequires:  libvisual-devel
-BuildRequires:  libgudev-devel
 BuildRequires:  gtk2-devel
+BuildRequires:  libgudev-devel
+BuildRequires:  libogg-devel >= 1.0
+BuildRequires:  liboil-devel >= 0.3.6
+BuildRequires:  libtheora-devel >= 1.0
+BuildRequires:  libvisual-devel
+BuildRequires:  libvorbis-devel >= 1.0
+BuildRequires:  libXv-devel
+BuildRequires:  orc-devel >= 0.4.5
+BuildRequires:  pango-devel
 BuildRequires:  pkgconfig
 Obsoletes:      gstreamer-plugins
 
@@ -59,10 +59,11 @@ This package contains a set of well-maintained base plug-ins.
 %configure \
   --with-package-name='Fedora gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
-  --enable-gtk-doc \
   --enable-experimental \
-  --disable-static \
-  --disable-gnome_vfs
+  --enable-gtk-doc \
+  --enable-orc \
+  --disable-gnome_vfs \
+  --disable-static
 
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
@@ -289,6 +290,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sun Jun 27 2010 Benjamin Otte <otte@redhat.com> 0.10.29.2-1
+- Upate to prerelease
+
 * Wed Apr 28 2010 Benjamin Otte <otte@redhat.com> 0.10.29-1
 - Update to 0.10.29
 
