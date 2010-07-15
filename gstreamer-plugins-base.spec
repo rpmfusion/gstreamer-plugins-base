@@ -3,7 +3,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        0.10.30
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -290,6 +290,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jul 15 2010 Colin Walters <walters@verbum.org> - 0.10.30-2
+- Rebuild with new gobject-introspection
+
 * Thu Jul 15 2010 Benjamin Otte <otte@redhat.com> 0.10.30-1
 - Update to 0.10.30
 
