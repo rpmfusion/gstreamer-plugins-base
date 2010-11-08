@@ -59,8 +59,10 @@ This package contains a set of well-maintained base plug-ins.
 %prep
 %setup -q -n gst-plugins-base-%{version}
 
+pushd common/
 %patch0 -p1 -b .new-make
 %patch1 -p1 -b .new-make2
+popd
 
 %build
 %configure \
