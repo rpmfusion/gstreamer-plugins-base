@@ -43,6 +43,7 @@ BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
 # Building with new make
+BuildRequires:  automake autoconf libtool
 Patch0:         0001-gtk-doc-.mak-use-tabs-instead-of-spaces-to-fix-build.patch
 Patch1:         0001-.mak-more-spaces-tabs-clean-ups.patch
 
@@ -63,6 +64,8 @@ pushd common/
 %patch0 -p1 -b .new-make
 %patch1 -p1 -b .new-make2
 popd
+
+autoreconf -f
 
 %build
 %configure \
