@@ -1,8 +1,9 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
+%define         gstreamer_version %{majorminor}.30
 
 Name:           %{gstreamer}-plugins-base
-Version:        0.10.30.4
+Version:        %{gstreamer_version}.4
 Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
@@ -12,10 +13,10 @@ URL:            http://gstreamer.freedesktop.org/
 #Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 
-Requires:       %{gstreamer} >= %{version}
+Requires:       %{gstreamer} >= %{gstreamer_version}
 Requires:       liboil >= 0.3.12-9
 Requires:       iso-codes
-BuildRequires:  %{gstreamer}-devel >= %{version}
+BuildRequires:  %{gstreamer}-devel >= %{gstreamer_version}
 BuildRequires:  iso-codes-devel
 BuildRequires:  gobject-introspection-devel >= 0.6.3
 
