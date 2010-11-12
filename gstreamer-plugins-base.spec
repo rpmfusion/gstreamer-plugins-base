@@ -2,8 +2,8 @@
 %define         majorminor      0.10
 
 Name:           %{gstreamer}-plugins-base
-Version:        0.10.30
-Release:        3%{?dist}
+Version:        0.10.30.4
+Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -11,7 +11,6 @@ License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 #Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       %{gstreamer} >= %{version}
 Requires:       liboil >= 0.3.12-9
@@ -80,9 +79,7 @@ autoreconf -f
 make %{?_smp_mflags} ERROR_CFLAGS=""
 
 %install
-rm -rf $RPM_BUILD_ROOT
-
-%makeinstall
+make install DESTDIR=$RPM_BUILD_ROOT
 
 # Clean out files that should not be part of the rpm.
 rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.la
@@ -94,8 +91,6 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 
 %find_lang gst-plugins-base-%{majorminor}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f gst-plugins-base-%{majorminor}.lang
 %defattr(-, root, root)
@@ -166,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 %package devel
 Summary:        GStreamer Base Plugins Development files
 Group:          Development/Libraries
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{version}-%{release}
 Obsoletes:      gstreamer-plugins-devel
 
 %description devel
@@ -302,6 +297,10 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Nov 12 2010 Matthias Clasen <mclasen@redhat.com> 0.10.30.4-1
+- Update to 0.10.30.4
+- Minor spec file cleanups
+
 * Mon Nov 08 2010 Bastien Nocera <bnocera@redhat.com> 0.10.30-3
 - Rebuild with new gobject-introspection
 
