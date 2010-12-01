@@ -1,9 +1,9 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
-%define         gstreamer_version %{majorminor}.30
+%define         gstreamer_version %{majorminor}.31
 
 Name:           %{gstreamer}-plugins-base
-Version:        %{gstreamer_version}.4
+Version:        %{gstreamer_version}
 Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
@@ -44,8 +44,6 @@ BuildRequires:  PyXML
 
 # Building with new make
 BuildRequires:  automake autoconf libtool
-#Patch0:         0001-gtk-doc-.mak-use-tabs-instead-of-spaces-to-fix-build.patch
-#Patch1:         0001-.mak-more-spaces-tabs-clean-ups.patch
 
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
@@ -59,11 +57,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-
-#pushd common/
-#%patch0 -p1 -b .new-make
-#%patch1 -p1 -b .new-make2
-#popd
 
 autoreconf -f
 
@@ -298,6 +291,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Dec 01 2010 Benjamin Otte <otte@redhat.com> 0.10.31-1
+- Update to 0.10.31
+
 * Fri Nov 12 2010 Matthias Clasen <mclasen@redhat.com> 0.10.30.4-1
 - Update to 0.10.30.4
 - Minor spec file cleanups
