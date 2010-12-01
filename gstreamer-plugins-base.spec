@@ -152,6 +152,28 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %{_libdir}/gstreamer-%{majorminor}/libgstximagesink.so
 %{_libdir}/gstreamer-%{majorminor}/libgstxvimagesink.so
 
+%package -n gstreamer-plugins-base-tools
+Summary:        tools for GStreamer streaming media framework base plugins
+Group:          Applications/Multimedia
+Requires:       %{name} = %{version}-%{release}
+
+%description -n gstreamer-plugins-base-tools
+GStreamer is a streaming media framework, based on graphs of filters which
+operate on media data. Applications using this library can do anything
+from real-time sound processing to playing videos, and just about anything
+else media-related.  Its plugin-based architecture means that new data
+types or processing capabilities can be added simply by installing new
+plug-ins.
+
+This package contains the command-line tools for the base plugins.
+These include:
+
+* gst-discoverer
+
+%files -n gstreamer-plugins-base-tools
+%defattr(-, root, root, -)
+%{_bindir}/gst-discoverer-%{majorminor}
+
 %package devel
 Summary:        GStreamer Base Plugins Development files
 Group:          Development/Libraries
@@ -205,7 +227,10 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer
 %{_includedir}/gstreamer-%{majorminor}/gst/netbuffer/gstnetbuffer.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/pbutils
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/codec-utils.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/descriptions.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/gstdiscoverer.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/gstpluginsbaseversion.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/install-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/missing-plugins.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/pbutils.h
@@ -293,6 +318,7 @@ library.
 %changelog
 * Wed Dec 01 2010 Benjamin Otte <otte@redhat.com> 0.10.31-1
 - Update to 0.10.31
+- Add tools subpackage
 
 * Fri Nov 12 2010 Matthias Clasen <mclasen@redhat.com> 0.10.30.4-1
 - Update to 0.10.30.4
