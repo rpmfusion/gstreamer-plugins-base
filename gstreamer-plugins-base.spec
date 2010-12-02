@@ -42,9 +42,6 @@ Obsoletes:      gstreamer-plugins
 BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
-# Building with new make
-BuildRequires:  automake autoconf libtool
-
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
@@ -57,8 +54,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-
-autoreconf -f
 
 %build
 %configure \
