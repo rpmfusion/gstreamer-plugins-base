@@ -1,6 +1,6 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
-%define         gstreamer_version %{majorminor}.31
+%define         gstreamer_version %{majorminor}.31.2
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
@@ -33,7 +33,7 @@ BuildRequires:  libtheora-devel >= 1.0
 BuildRequires:  libvisual-devel
 BuildRequires:  libvorbis-devel >= 1.0
 BuildRequires:  libXv-devel
-BuildRequires:  orc-devel >= 0.4.5
+BuildRequires:  orc-devel >= 0.4.11
 BuildRequires:  pango-devel
 BuildRequires:  pkgconfig
 Obsoletes:      gstreamer-plugins
@@ -311,6 +311,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Jan 07 2011 Benjamin Otte <otte@redhat.com> 0.10.31.2-1
+- Update to prerelease
+
 * Wed Dec 01 2010 Benjamin Otte <otte@redhat.com> 0.10.31-1
 - Update to 0.10.31
 - Add tools subpackage
