@@ -116,25 +116,26 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 
 # base plugins without external dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstadder.so
+%{_libdir}/gstreamer-%{majorminor}/libgstapp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudioconvert.so
+%{_libdir}/gstreamer-%{majorminor}/libgstaudiorate.so
+%{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
 %{_libdir}/gstreamer-%{majorminor}/libgstaudiotestsrc.so
-%{_libdir}/gstreamer-%{majorminor}/libgstffmpegcolorspace.so
 %{_libdir}/gstreamer-%{majorminor}/libgstdecodebin.so
 %{_libdir}/gstreamer-%{majorminor}/libgstdecodebin2.so
-%{_libdir}/gstreamer-%{majorminor}/libgstplaybin.so
-%{_libdir}/gstreamer-%{majorminor}/libgsttypefindfunctions.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvideotestsrc.so
-%{_libdir}/gstreamer-%{majorminor}/libgstaudiorate.so
-%{_libdir}/gstreamer-%{majorminor}/libgstsubparse.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvolume.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvideorate.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvideoscale.so
-%{_libdir}/gstreamer-%{majorminor}/libgsttcp.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
-%{_libdir}/gstreamer-%{majorminor}/libgstaudioresample.so
+%{_libdir}/gstreamer-%{majorminor}/libgstencodebin.so
+%{_libdir}/gstreamer-%{majorminor}/libgstffmpegcolorspace.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgdp.so
 %{_libdir}/gstreamer-%{majorminor}/libgstgio.so
-%{_libdir}/gstreamer-%{majorminor}/libgstapp.so
+%{_libdir}/gstreamer-%{majorminor}/libgstplaybin.so
+%{_libdir}/gstreamer-%{majorminor}/libgstsubparse.so
+%{_libdir}/gstreamer-%{majorminor}/libgsttcp.so
+%{_libdir}/gstreamer-%{majorminor}/libgsttypefindfunctions.so
+%{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
+%{_libdir}/gstreamer-%{majorminor}/libgstvideorate.so
+%{_libdir}/gstreamer-%{majorminor}/libgstvideoscale.so
+%{_libdir}/gstreamer-%{majorminor}/libgstvideotestsrc.so
+%{_libdir}/gstreamer-%{majorminor}/libgstvolume.so
 
 # base plugins with dependencies
 %{_libdir}/gstreamer-%{majorminor}/libgstalsa.so
@@ -224,6 +225,8 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/pbutils
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/codec-utils.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/descriptions.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/encoding-profile.h
+%{_includedir}/gstreamer-%{majorminor}/gst/pbutils/encoding-target.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/gstdiscoverer.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/gstpluginsbaseversion.h
 %{_includedir}/gstreamer-%{majorminor}/gst/pbutils/install-plugins.h
