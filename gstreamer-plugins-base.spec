@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -14,7 +14,6 @@ URL:            http://gstreamer.freedesktop.org/
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.bz2
 
 Requires:       %{gstreamer} >= %{gstreamer_version}
-Requires:       liboil >= 0.3.12-9
 Requires:       iso-codes
 BuildRequires:  %{gstreamer}-devel >= %{gstreamer_version}
 BuildRequires:  iso-codes-devel
@@ -314,6 +313,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sun Jan 16 2011 Matthias Clasen <mclasen@redhat.com> 0.10.31.3-2
+- Drop explicit, unused liboil dependency
+
 * Wed Jan 12 2011 Benjamin Otte <otte@redhat.com> 0.10.31.3-1
 - Update to prerelease
 
