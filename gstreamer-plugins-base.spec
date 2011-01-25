@@ -130,7 +130,6 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %{_libdir}/gstreamer-%{majorminor}/libgstsubparse.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttcp.so
 %{_libdir}/gstreamer-%{majorminor}/libgsttypefindfunctions.so
-%{_libdir}/gstreamer-%{majorminor}/libgstvideo4linux.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideorate.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideoscale.so
 %{_libdir}/gstreamer-%{majorminor}/libgstvideotestsrc.so
