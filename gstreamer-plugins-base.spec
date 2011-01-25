@@ -1,6 +1,6 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
-%define         gstreamer_version %{majorminor}.31.3
+%define         gstreamer_version %{majorminor}.32
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
@@ -313,6 +313,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jan 25 2011 Benjamin Otte <otte@redhat.com> 0.10.32-1
+- Update to 0.10.32
+
 * Sun Jan 16 2011 Matthias Clasen <mclasen@redhat.com> 0.10.31.3-2
 - Drop explicit, unused liboil dependency
 
