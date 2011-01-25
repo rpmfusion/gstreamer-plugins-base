@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
