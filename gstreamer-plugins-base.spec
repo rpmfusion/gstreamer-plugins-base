@@ -256,8 +256,9 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %{_includedir}/gstreamer-%{majorminor}/gst/sdp/gstsdp.h
 %{_includedir}/gstreamer-%{majorminor}/gst/sdp/gstsdpmessage.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
-%{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
+%{_includedir}/gstreamer-%{majorminor}/gst/tag/xmpwriter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/gsttagdemux.h
+%{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/video
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideosink.h
