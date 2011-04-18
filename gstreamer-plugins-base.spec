@@ -1,6 +1,6 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
-%define         gstreamer_version %{majorminor}.32
+%define         gstreamer_version %{majorminor}.32.2
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
@@ -312,6 +312,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Apr 18 2011 Benjamin Otte <otte@redhat.com> 0.10.32.2-1
+- Update to prerelease
+
 * Tue Jan 25 2011 Benjamin Otte <otte@redhat.com> 0.10.32-1
 - Update to 0.10.32
 
