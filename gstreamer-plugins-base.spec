@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -299,8 +299,6 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 Summary: Developer documentation for GStreamer Base plugins library
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
-# for /usr/share/gtk-doc/html
-Requires: gtk-doc
 BuildArch: noarch
 
 %description devel-docs
@@ -309,10 +307,16 @@ library.
 
 %files devel-docs
 %defattr(-, root, root)
+%dir %{_datadir}/gtk-doc
+%dir %{_datadir}/gtk-doc/html
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Jul 21 2011 Michael Schwendt <mschwendt@fedoraproject.org> - 0.10.35-2
+- Remove gtk-doc dependency from -devel-docs package and 
+  own the two gtk-doc directories instead (#604365).
+
 * Fri Jun 17 2011 Tomas Bzatek <tbzatek@redhat.com> - 0.10.35-1
 - Update to 0.10.35
 
