@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -12,6 +12,8 @@ License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 #Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.xz
+# https://bugzilla.gnome.org/show_bug.cgi?id=652342 - fixes RB CD rip
+Patch0:         gst-plugins-base-0.10.35-profiles.patch
 
 Requires:       %{gstreamer} >= %{gstreamer_version}
 Requires:       iso-codes
@@ -53,6 +55,7 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .profiles
 
 %build
 %configure \
@@ -313,6 +316,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Aug 29 2011 Adam Williamson <awilliam@redhat.com> - 0.10.35-3
+- backport a fix for GNOME #652342, fixing Rhythmbox CD rip to FLAC
+
 * Thu Jul 21 2011 Michael Schwendt <mschwendt@fedoraproject.org> - 0.10.35-2
 - Remove gtk-doc dependency from -devel-docs package and 
   own the two gtk-doc directories instead (#604365).
