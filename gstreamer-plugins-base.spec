@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -27,7 +27,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  alsa-lib-devel
 BuildRequires:  cdparanoia-devel
 BuildRequires:  gtk2-devel
-BuildRequires:  libgudev-devel
+BuildRequires:  libgudev1-devel
 BuildRequires:  libogg-devel >= 1.0
 BuildRequires:  liboil-devel >= 0.3.6
 BuildRequires:  libtheora-devel >= 1.0
@@ -316,6 +316,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Feb 17 2012 Peter Robinson <pbrobinson@fedoraproject.org> - 0.10.35-5
+- libgudev-devel -> libgudev1-devel. Would have been nice if this was announced
+
 * Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.35-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
