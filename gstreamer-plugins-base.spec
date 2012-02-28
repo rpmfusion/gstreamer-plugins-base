@@ -13,7 +13,6 @@ URL:            http://gstreamer.freedesktop.org/
 #Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
 Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-%{version}.tar.xz
 # https://bugzilla.gnome.org/show_bug.cgi?id=652342 - fixes RB CD rip
-Patch0:         gst-plugins-base-0.10.35-profiles.patch
 
 Requires:       %{gstreamer} >= %{gstreamer_version}
 Requires:       iso-codes
@@ -55,7 +54,6 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
-%patch0 -p1 -b .profiles
 
 %build
 %configure \
