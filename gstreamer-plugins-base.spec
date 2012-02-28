@@ -1,10 +1,10 @@
 %define         gstreamer       gstreamer
 %define         majorminor      0.10
-%define         gstreamer_version %{majorminor}.35
+%define         gstreamer_version %{majorminor}.36
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        5%{?dist}
+Release:        1%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -316,6 +316,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Feb 28 2012 Benjamin Otte <otte@redhat.com> 0.10.36-1
+- Update to 0.10.36
+
 * Fri Feb 17 2012 Peter Robinson <pbrobinson@fedoraproject.org> - 0.10.35-5
 - libgudev-devel -> libgudev1-devel. Would have been nice if this was announced
 
