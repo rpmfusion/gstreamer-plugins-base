@@ -190,7 +190,10 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/audio.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/audio-enumtypes.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioclock.h
+%{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiodecoder.h
+%{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioencoder.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiofilter.h
+%{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudioiec61937.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiosink.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstaudiosrc.h
 %{_includedir}/gstreamer-%{majorminor}/gst/audio/gstbaseaudiosink.h
@@ -259,12 +262,14 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/tag
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/xmpwriter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/gsttagdemux.h
+%{_includedir}/gstreamer-%{majorminor}/gst/tag/gsttagmux.h
 %{_includedir}/gstreamer-%{majorminor}/gst/tag/tag.h
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/video
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideofilter.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/gstvideosink.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/video.h
 %{_includedir}/gstreamer-%{majorminor}/gst/video/video-enumtypes.h
+%{_includedir}/gstreamer-%{majorminor}/gst/video/video-overlay-composition.h
 
 %{_libdir}/libgstaudio-%{majorminor}.so
 %{_libdir}/libgstinterfaces-%{majorminor}.so
@@ -279,6 +284,9 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 %{_libdir}/libgstsdp-%{majorminor}.so
 %{_libdir}/libgstfft-%{majorminor}.so
 %{_libdir}/libgstapp-%{majorminor}.so
+
+%dir %{_datadir}/gst-plugins-base
+%{_datadir}/gst-plugins-base/license-translations.dict
 
 %{_datadir}/gir-1.0/GstApp-0.10.gir
 %{_datadir}/gir-1.0/GstAudio-0.10.gir
