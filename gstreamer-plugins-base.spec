@@ -137,12 +137,12 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %{_libdir}/gstreamer-%{majorminor}/libgstximagesink.so
 %{_libdir}/gstreamer-%{majorminor}/libgstxvimagesink.so
 
-%package -n gstreamer-plugins-base-tools
+%package tools
 Summary:        tools for GStreamer streaming media framework base plugins
 Group:          Applications/Multimedia
 Requires:       %{name} = %{version}-%{release}
 
-%description -n gstreamer-plugins-base-tools
+%description tools
 GStreamer is a streaming media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
 from real-time sound processing to playing videos, and just about anything
@@ -155,7 +155,7 @@ These include:
 
 * gst-discoverer
 
-%files -n gstreamer-plugins-base-tools
+%files tools
 %{_bindir}/gst-discoverer-%{majorminor}
 
 %package devel
