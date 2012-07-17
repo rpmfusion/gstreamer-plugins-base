@@ -35,6 +35,7 @@ BuildRequires:  libXv-devel
 BuildRequires:  orc-devel >= 0.4.11
 BuildRequires:  pango-devel
 BuildRequires:  pkgconfig
+Obsoletes:      gstreamer-plugins
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
@@ -167,6 +168,7 @@ These include:
 Summary:        GStreamer Base Plugins Development files
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
+Obsoletes:      gstreamer-plugins-devel
 
 %description devel
 GStreamer Base Plugins library development and header files. Documentation
@@ -306,7 +308,6 @@ library.
 %changelog
 * Fri Jul 13 2012 Brian Pepple <bpepple@fedoraproject.org> - 0.11.92-1
 - Update to 0.11.92.
-- Drop obsoletes from 2006. Should not be needed anymore.
 - Update file list for changes to gst-1.0.
 - Bump minimum version of gobject-introspection and libtheora needed.
 
