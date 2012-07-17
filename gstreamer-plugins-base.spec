@@ -80,12 +80,6 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %find_lang gst-plugins-base-%{majorminor}
 
 
-%post -p /sbin/ldconfig
-
-
-%postun -p /sbin/ldconfig
-
-
 %files -f gst-plugins-base-%{majorminor}.lang
 %doc AUTHORS COPYING README REQUIREMENTS
 # libraries
@@ -657,7 +651,7 @@ library.
 * Wed Jan 18 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.2-1
 - Upgrade to 0.10.2
 - Require gstreamer-0.10.2
-- Add libgstcdda and libcdparanoia to the %%files section
+- Add libgstcdda and libcdparanoia to the %files section
 
 * Fri Jan 06 2006 John (J5) Palmieri <johnp@redhat.com> - 0.10.1-1
 - New upstream version
