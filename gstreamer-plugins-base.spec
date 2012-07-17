@@ -144,7 +144,7 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %{_libdir}/gstreamer-%{majorminor}/libgstxvimagesink.so
 
 %package tools
-Summary:        Tools for GStreamer streaming media framework base plugins
+Summary:        tools for GStreamer streaming media framework base plugins
 Group:          Applications/Multimedia
 Requires:       %{name} = %{version}-%{release}
 
