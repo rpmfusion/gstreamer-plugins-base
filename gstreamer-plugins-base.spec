@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        2%{?dist}
+Release:        3{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -42,6 +42,8 @@ Obsoletes:      gstreamer-plugins
 BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
+Patch0: 0001-missing-plugins-Remove-the-mpegaudioversion-field.patch
+
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
@@ -54,6 +56,7 @@ This package contains a set of well-maintained base plug-ins.
 
 %prep
 %setup -q -n gst-plugins-base-%{version}
+%patch0 -p1 -b .mpegaudioversion
 
 %build
 %configure \
@@ -322,6 +325,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Aug 07 2012 Bastien Nocera <bnocera@redhat.com> 0.10.36-3
+- Add patch for MP3 codec installation problems (#680809)
+
 * Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.36-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
