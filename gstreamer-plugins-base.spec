@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -43,6 +43,7 @@ BuildRequires:  gtk-doc >= 1.3
 BuildRequires:  PyXML
 
 Patch0: 0001-missing-plugins-Remove-the-mpegaudioversion-field.patch
+Patch1: 0001-playsink-If-the-visualisation-is-changing-and-reconf.patch
 
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
@@ -57,6 +58,7 @@ This package contains a set of well-maintained base plug-ins.
 %prep
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .mpegaudioversion
+%patch1 -p1 -b .deadlock
 
 %build
 %configure \
@@ -325,6 +327,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Oct 03 2013 Adam Jackson <ajax@redhat.com> 0.10.36-6
+- Backport a deadlock fix
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.36-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
