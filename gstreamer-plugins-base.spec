@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -40,7 +40,6 @@ Obsoletes:      gstreamer-plugins
 
 # documentation
 BuildRequires:  gtk-doc >= 1.3
-BuildRequires:  PyXML
 
 Patch0: 0001-missing-plugins-Remove-the-mpegaudioversion-field.patch
 
@@ -325,6 +324,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Mon Oct 14 2013 Dan Horák <dan[at]danny.cz> - 0.10.36-6
+- drop BR: PyXML (https://fedoraproject.org/wiki/Features/RemovePyXML), fixes #992440
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.36-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
