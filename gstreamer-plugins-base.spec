@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -82,6 +82,8 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 
 %find_lang gst-plugins-base-%{majorminor}
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f gst-plugins-base-%{majorminor}.lang
 %defattr(-, root, root)
@@ -324,6 +326,10 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sat Dec 21 2013 Ville Skyttä <ville.skytta@iki.fi> - 0.10.36-7
+- Call ldconfig in %%post* scriptlets.
+- Fix bogus dates in %%changelog.
+
 * Mon Oct 14 2013 Dan Horák <dan[at]danny.cz> - 0.10.36-6
 - drop BR: PyXML (https://fedoraproject.org/wiki/Features/RemovePyXML), fixes #992440
 
@@ -411,7 +417,7 @@ library.
 * Tue Apr 27 2010 Benjamin Otte <otte@redhat.com> 0.10.28.3-2
 - Make a noarch devel-docs subpackage to avoid conflicts
 
-* Thu Apr 26 2010 Benjamin Otte <otte@redhat.com> 0.10.28.3-1
+* Mon Apr 26 2010 Benjamin Otte <otte@redhat.com> 0.10.28.3-1
 - Update pre-release
 
 * Thu Apr 15 2010 Benjamin Otte <otte@redhat.com> 0.10.28.2-1
@@ -439,13 +445,13 @@ library.
 * Fri Feb 19 2010 Benjamin Otte <otte@redhat.com> 0.10.26.2-1
 - Update to pre-release
 
-* Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-3
+* Thu Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-3
 - Patch Makefile.in, too and not just Makefile.am
 
-* Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-2
+* Thu Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-2
 - Fix build to conform to new DSO rules
 
-* Fri Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-1
+* Thu Feb 11 2010 Benjamin Otte <otte@redhat.com> 0.10.26-1
 - Update to 0.10.26
 
 * Fri Feb 05 2010 Benjamin Otte <otte@redhat.com> 0.10.25.3-1
