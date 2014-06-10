@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -42,6 +42,8 @@ Obsoletes:      gstreamer-plugins
 BuildRequires:  gtk-doc >= 1.3
 
 Patch0: 0001-missing-plugins-Remove-the-mpegaudioversion-field.patch
+Patch1: 0001-audioresample-Fix-build-on-x86-if-emmintrin.h-is-ava.patch
+Patch2: 0002-audioresample-It-s-HAVE_EMMINTRIN_H-not-HAVE_XMMINTR.patch
 
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
@@ -56,6 +58,8 @@ This package contains a set of well-maintained base plug-ins.
 %prep
 %setup -q -n gst-plugins-base-%{version}
 %patch0 -p1 -b .mpegaudioversion
+%patch1 -p1 -b .0001
+%patch2 -p1 -b .0002
 
 %build
 %configure \
@@ -326,6 +330,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jun 10 2014 Wim Taymans <wtaymans@redhat.com> - 0.10.36-9
+- Improve conditional SSE and SSE2 compilation. Fixes #1106735 
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.36-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
