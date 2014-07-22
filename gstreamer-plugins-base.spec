@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -330,6 +330,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Tue Jul 22 2014 Kalev Lember <kalevlember@gmail.com> - 0.10.36-10
+- Rebuilt for gobject-introspection 1.41.4
+
 * Tue Jun 10 2014 Wim Taymans <wtaymans@redhat.com> - 0.10.36-9
 - Improve conditional SSE and SSE2 compilation. Fixes #1106735 
 
