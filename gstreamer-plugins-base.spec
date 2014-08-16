@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 Group:          Applications/Multimedia
@@ -330,6 +330,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.10.36-11
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Tue Jul 22 2014 Kalev Lember <kalevlember@gmail.com> - 0.10.36-10
 - Rebuilt for gobject-introspection 1.41.4
 
