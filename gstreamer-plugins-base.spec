@@ -47,6 +47,8 @@ Patch0: 0001-missing-plugins-Remove-the-mpegaudioversion-field.patch
 Patch1: 0001-audioresample-Fix-build-on-x86-if-emmintrin.h-is-ava.patch
 Patch2: 0002-audioresample-It-s-HAVE_EMMINTRIN_H-not-HAVE_XMMINTR.patch
 Patch3: 0001-typefind-bounds-check-windows-ico-detection.patch
+Patch4: fix-gst-init.patch
+Patch5: fix-docs.patch
 
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
@@ -64,6 +66,8 @@ This package contains a set of well-maintained base plug-ins.
 %patch1 -p1 -b .0001
 %patch2 -p1 -b .0002
 %patch3 -p1 -b .0003
+%patch4 -p1 -b .0004
+%patch5 -p1 -b .0005
 
 %build
 %configure \
@@ -361,6 +365,7 @@ library.
 * Tue Dec 06 2016 Wim Taymans <wtaymans@redhat.com> - 0.10.36-15
 - typefind: bounds check windows ico detection
   (rhbz#1401949)
+- fix build of docs and gir files
 
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.36-14
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
