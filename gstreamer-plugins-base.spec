@@ -122,7 +122,6 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 %postun -p /sbin/ldconfig
 
 %files -f gst-plugins-base-%{majorminor}.lang
-%defattr(-, root, root)
 %doc AUTHORS COPYING README REQUIREMENTS
 
 # libraries
@@ -206,7 +205,6 @@ These include:
 * gst-discoverer
 
 %files -n gstreamer-plugins-base-tools
-%defattr(-, root, root, -)
 %{_bindir}/gst-discoverer-%{majorminor}
 
 %package devel
@@ -220,7 +218,6 @@ GStreamer Base Plugins library development and header files. Documentation
 is provided by the gstreamer-plugins-base-devel-docs package.
 
 %files devel
-%defattr(-, root, root)
 # plugin helper library headers
 %dir %{_includedir}/gstreamer-%{majorminor}/gst/app
 %{_includedir}/gstreamer-%{majorminor}/gst/app/gstappbuffer.h
@@ -355,7 +352,6 @@ This package contains developer documentation for the GStreamer Base Plugins
 library.
 
 %files devel-docs
-%defattr(-, root, root)
 %dir %{_datadir}/gtk-doc
 %dir %{_datadir}/gtk-doc/html
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-libs-%{majorminor}
