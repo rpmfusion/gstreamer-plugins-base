@@ -118,8 +118,7 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 
 %find_lang gst-plugins-base-%{majorminor}
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%ldconfig_scriptlets
 
 %files -f gst-plugins-base-%{majorminor}.lang
 %doc AUTHORS COPYING README REQUIREMENTS
