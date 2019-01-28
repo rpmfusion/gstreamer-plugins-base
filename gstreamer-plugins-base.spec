@@ -7,7 +7,6 @@ Version:        %{gstreamer_version}
 Release:        21%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
-Group:          Applications/Multimedia
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 #Source:         http://gstreamer.freedesktop.org/src/gst-plugins-base/pre/gst-plugins-base-%{version}.tar.bz2
@@ -187,7 +186,6 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/gst-visualise*
 
 %package -n gstreamer-plugins-base-tools
 Summary:        tools for GStreamer streaming media framework base plugins
-Group:          Applications/Multimedia
 Requires:       %{name} = %{version}-%{release}
 
 %description -n gstreamer-plugins-base-tools
@@ -208,7 +206,6 @@ These include:
 
 %package devel
 Summary:        GStreamer Base Plugins Development files
-Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Obsoletes:      gstreamer-plugins-devel
 
@@ -342,7 +339,6 @@ is provided by the gstreamer-plugins-base-devel-docs package.
 
 %package devel-docs
 Summary: Developer documentation for GStreamer Base plugins library
-Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
