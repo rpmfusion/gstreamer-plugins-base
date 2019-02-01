@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        21%{?dist}
+Release:        22%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 License:        LGPLv2+
@@ -353,6 +353,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.36-22
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.36-21
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
