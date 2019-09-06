@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        23%{?dist}
+Release:        24%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 License:        LGPLv2+
@@ -73,7 +73,6 @@ This package contains a set of well-maintained base plug-ins.
   --with-package-name='Fedora gstreamer-plugins-base package' \
   --with-package-origin='http://download.fedora.redhat.com/fedora' \
   --enable-experimental \
-  --enable-gtk-doc \
   --enable-orc \
   --disable-gnome_vfs \
   --disable-static
@@ -353,6 +352,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Wed Aug 21 2019 Tom Callaway <spot@fedoraproject.org> - 0.10.36-24
+- disable gtk-doc generation
+
 * Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.36-23
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
