@@ -4,7 +4,7 @@
 
 Name:           %{gstreamer}-plugins-base
 Version:        %{gstreamer_version}
-Release:        24%{?dist}
+Release:        25%{?dist}
 Summary:        GStreamer streaming media framework base plug-ins
 
 License:        LGPLv2+
@@ -352,6 +352,9 @@ library.
 %doc %{_datadir}/gtk-doc/html/gst-plugins-base-plugins-%{majorminor}
 
 %changelog
+* Thu Dec 05 2019 Dominik 'Rathann' Mierzejewski <rpm@greysector.net> - 0.10.36-25
+- rebuilt
+
 * Wed Aug 21 2019 Tom Callaway <spot@fedoraproject.org> - 0.10.36-24
 - disable gtk-doc generation
 
