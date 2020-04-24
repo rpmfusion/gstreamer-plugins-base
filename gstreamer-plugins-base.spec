@@ -35,7 +35,7 @@ BuildRequires:  libXv-devel
 BuildRequires:  orc-devel >= 0.4.11
 BuildRequires:  pango-devel
 BuildRequires:  pkgconfig
-Obsoletes:      gstreamer-plugins
+Obsoletes:      gstreamer-plugins < %{version}-%{release}
 
 BuildRequires:  chrpath
 
@@ -206,7 +206,7 @@ These include:
 %package devel
 Summary:        GStreamer Base Plugins Development files
 Requires:       %{name} = %{version}-%{release}
-Obsoletes:      gstreamer-plugins-devel
+Obsoletes:      gstreamer-plugins-devel < %{version}-%{release}
 
 %description devel
 GStreamer Base Plugins library development and header files. Documentation
