@@ -69,7 +69,9 @@ This package contains a set of well-maintained base plug-ins.
 %patch3 -p1 -b .0003
 %patch4 -p1 -b .0004
 %patch5 -p1 -b .0005
+%if 0%{fedora} > 32
 %patch10 -p1 -b .mkenums
+%endif
 
 %build
 %configure \
