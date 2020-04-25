@@ -48,8 +48,8 @@ Patch2: 0002-audioresample-It-s-HAVE_EMMINTRIN_H-not-HAVE_XMMINTR.patch
 Patch3: 0001-typefind-bounds-check-windows-ico-detection.patch
 Patch4: fix-gst-init.patch
 Patch5: fix-docs.patch
-# Fix error: stray '\' in program
-Patch10: %{name}-mkenums.patch
+# Fix build with make-4.3
+Patch10: %{name}-make43.patch
 
 %description
 GStreamer is a streaming media framework, based on graphs of filters which
@@ -70,7 +70,7 @@ This package contains a set of well-maintained base plug-ins.
 %patch4 -p1 -b .0004
 %patch5 -p1 -b .0005
 %if 0%{fedora} > 32
-%patch10 -p1 -b .mkenums
+%patch10 -p1 -b .make43
 %endif
 
 %build

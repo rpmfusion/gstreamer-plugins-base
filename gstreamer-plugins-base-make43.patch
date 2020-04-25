@@ -1,5 +1,5 @@
-diff -up gst-plugins-base-0.10.36/gst/encoding/Makefile.in.mkenums gst-plugins-base-0.10.36/gst/encoding/Makefile.in
---- gst-plugins-base-0.10.36/gst/encoding/Makefile.in.mkenums	2012-02-21 00:33:20.000000000 +0100
+diff -up gst-plugins-base-0.10.36/gst/encoding/Makefile.in.make43 gst-plugins-base-0.10.36/gst/encoding/Makefile.in
+--- gst-plugins-base-0.10.36/gst/encoding/Makefile.in.make43	2012-02-21 00:33:20.000000000 +0100
 +++ gst-plugins-base-0.10.36/gst/encoding/Makefile.in	2020-04-24 20:44:43.088889646 +0200
 @@ -493,7 +493,7 @@ noinst_HEADERS = \
  BUILT_SOURCES = $(built_headers) $(built_sources)
@@ -10,8 +10,8 @@ diff -up gst-plugins-base-0.10.36/gst/encoding/Makefile.in.mkenums gst-plugins-b
  all: $(BUILT_SOURCES)
  	$(MAKE) $(AM_MAKEFLAGS) all-am
  
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in.mkenums	2020-04-24 20:40:11.864361078 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in.make43	2020-04-24 20:40:11.864361078 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in	2020-04-24 20:40:11.872361034 +0200
 @@ -473,7 +473,7 @@ lib_LTLIBRARIES = libgstapp-@GST_MAJORMI
  glib_enum_define = GST_APP
@@ -22,8 +22,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/app/Makefile.in.mkenums gst-plugi
  built_sources = gstapp-marshal.c
  built_headers = gstapp-marshal.h
  BUILT_SOURCES = $(built_sources) $(built_headers)
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in.mkenums	2020-04-24 20:40:11.865361072 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in.make43	2020-04-24 20:40:11.865361072 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in	2020-04-24 20:40:11.872361034 +0200
 @@ -544,7 +544,7 @@ libgstaudio_@GST_MAJORMINOR@_la_LIBADD =
    $(GST_BASE_LIBS) $(GST_LIBS)
@@ -34,8 +34,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/audio/Makefile.in.mkenums gst-plu
  @HAVE_INTROSPECTION_TRUE@BUILT_GIRSOURCES = GstAudio-@GST_MAJORMINOR@.gir
  @HAVE_INTROSPECTION_TRUE@gir_headers = $(patsubst %,$(srcdir)/%, \
  @HAVE_INTROSPECTION_TRUE@	$(libgstaudio_@GST_MAJORMINOR@include_HEADERS)) \
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in.mkenums	2020-04-24 20:40:11.865361072 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in.make43	2020-04-24 20:40:11.865361072 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in	2020-04-24 20:40:11.873361029 +0200
 @@ -551,7 +551,7 @@ BUILT_SOURCES = \
  
@@ -46,8 +46,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/interfaces/Makefile.in.mkenums gs
  @HAVE_INTROSPECTION_TRUE@BUILT_GIRSOURCES = GstInterfaces-@GST_MAJORMINOR@.gir
  @HAVE_INTROSPECTION_TRUE@gir_headers = $(patsubst %,$(srcdir)/%, \
  @HAVE_INTROSPECTION_TRUE@	$(libgstinterfacesinclude_HEADERS)) \
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in.mkenums	2020-04-24 20:40:11.866361067 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in.make43	2020-04-24 20:40:11.866361067 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in	2020-04-24 20:40:11.873361029 +0200
 @@ -542,7 +542,7 @@ CLEANFILES = $(BUILT_SOURCES) $(am__appe
  
@@ -58,8 +58,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/pbutils/Makefile.in.mkenums gst-p
  @HAVE_INTROSPECTION_TRUE@BUILT_GIRSOURCES = GstPbutils-@GST_MAJORMINOR@.gir
  @HAVE_INTROSPECTION_TRUE@gir_headers = $(patsubst %,$(srcdir)/%, \
  @HAVE_INTROSPECTION_TRUE@	$(libgstpbutils_@GST_MAJORMINOR@include_HEADERS)) \
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in.mkenums	2020-04-24 20:40:11.867361062 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in.make43	2020-04-24 20:40:11.867361062 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in	2020-04-24 20:40:11.874361024 +0200
 @@ -517,7 +517,7 @@ glib_gen_prefix = __gst_rtsp
  glib_enum_define = gst_rtsp
@@ -70,8 +70,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/rtsp/Makefile.in.mkenums gst-plug
  @HAVE_INTROSPECTION_TRUE@BUILT_GIRSOURCES = GstRtsp-@GST_MAJORMINOR@.gir
  @HAVE_INTROSPECTION_TRUE@gir_headers = $(patsubst %,$(srcdir)/%, \
  @HAVE_INTROSPECTION_TRUE@	$(libgstrtspinclude_HEADERS)) \
-diff -up gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in.mkenums gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in
---- gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in.mkenums	2020-04-24 20:40:11.868361056 +0200
+diff -up gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in.make43 gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in
+--- gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in.make43	2020-04-24 20:40:11.868361056 +0200
 +++ gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in	2020-04-24 20:40:11.874361024 +0200
 @@ -553,7 +553,7 @@ libgstvideo_@GST_MAJORMINOR@_la_LDFLAGS
  	$(GST_ALL_LDFLAGS) \
@@ -82,8 +82,8 @@ diff -up gst-plugins-base-0.10.36/gst-libs/gst/video/Makefile.in.mkenums gst-plu
  @HAVE_INTROSPECTION_TRUE@BUILT_GIRSOURCES = GstVideo-@GST_MAJORMINOR@.gir
  @HAVE_INTROSPECTION_TRUE@gir_headers = $(patsubst %,$(srcdir)/%, \
  @HAVE_INTROSPECTION_TRUE@	$(libgstvideo_@GST_MAJORMINOR@include_HEADERS)) \
-diff -up gst-plugins-base-0.10.36/gst/playback/Makefile.in.mkenums gst-plugins-base-0.10.36/gst/playback/Makefile.in
---- gst-plugins-base-0.10.36/gst/playback/Makefile.in.mkenums	2012-02-21 00:33:21.000000000 +0100
+diff -up gst-plugins-base-0.10.36/gst/playback/Makefile.in.make43 gst-plugins-base-0.10.36/gst/playback/Makefile.in
+--- gst-plugins-base-0.10.36/gst/playback/Makefile.in.make43	2012-02-21 00:33:21.000000000 +0100
 +++ gst-plugins-base-0.10.36/gst/playback/Makefile.in	2020-04-24 20:44:38.134916523 +0200
 @@ -569,7 +569,7 @@ noinst_HEADERS = \
  BUILT_SOURCES = $(built_headers) $(built_sources)
@@ -94,8 +94,8 @@ diff -up gst-plugins-base-0.10.36/gst/playback/Makefile.in.mkenums gst-plugins-b
  all: $(BUILT_SOURCES)
  	$(MAKE) $(AM_MAKEFLAGS) all-am
  
-diff -up gst-plugins-base-0.10.36/gst/tcp/Makefile.in.mkenums gst-plugins-base-0.10.36/gst/tcp/Makefile.in
---- gst-plugins-base-0.10.36/gst/tcp/Makefile.in.mkenums	2012-02-21 00:33:21.000000000 +0100
+diff -up gst-plugins-base-0.10.36/gst/tcp/Makefile.in.make43 gst-plugins-base-0.10.36/gst/tcp/Makefile.in
+--- gst-plugins-base-0.10.36/gst/tcp/Makefile.in.make43	2012-02-21 00:33:21.000000000 +0100
 +++ gst-plugins-base-0.10.36/gst/tcp/Makefile.in	2020-04-24 20:43:58.153133430 +0200
 @@ -471,7 +471,7 @@ glib_enum_headers = gsttcp.h
  glib_enum_define = GST_TCP
